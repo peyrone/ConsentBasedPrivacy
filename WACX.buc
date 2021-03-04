@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase" version="3">
+    <org.eventb.core.carrierSet name="'" org.eventb.core.identifier="PATIENTS"/>
+    <org.eventb.core.carrierSet name="(" org.eventb.core.identifier="AUTHORIZED_USERS"/>
+    <org.eventb.core.carrierSet name=")" org.eventb.core.identifier="SESSIONS"/>
+    <org.eventb.core.carrierSet name="*" org.eventb.core.identifier="ROLES"/>
+    <org.eventb.core.carrierSet name="+" org.eventb.core.identifier="CONSENTS"/>
+    <org.eventb.core.carrierSet name="," org.eventb.core.identifier="STATUSES"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="-" org.eventb.core.identifier="LegalStaff"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="." org.eventb.core.identifier="LegalApprover"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="/" org.eventb.core.identifier="Void"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="0" org.eventb.core.identifier="Approved"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="1" org.eventb.core.identifier="Rejected"/>
+    <org.eventb.core.axiom name="2" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(ROLES, {LegalStaff}, {LegalApprover})"/>
+    <org.eventb.core.axiom name="3" org.eventb.core.label="axm2" org.eventb.core.predicate="partition(STATUSES, {Void}, {Approved}, {Rejected})"/>
+    <org.eventb.core.axiom name="4" org.eventb.core.label="axm3" org.eventb.core.predicate="∅ ∈ SESSIONS ⤔ AUTHORIZED_USERS"/>
+    <org.eventb.core.axiom name="5" org.eventb.core.label="axm4" org.eventb.core.predicate="∅ ∈ (PATIENTS ↔ CONSENTS) ⤔ STATUSES"/>
+</org.eventb.core.contextFile>

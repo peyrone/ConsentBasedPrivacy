@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase" version="3">
+    <org.eventb.core.carrierSet name="'" org.eventb.core.identifier="PATIENTS"/>
+    <org.eventb.core.carrierSet name="(" org.eventb.core.identifier="FIELDS"/>
+    <org.eventb.core.carrierSet name=")" org.eventb.core.identifier="AUTHORIZED_USERS"/>
+    <org.eventb.core.carrierSet name="*" org.eventb.core.identifier="SESSIONS"/>
+    <org.eventb.core.carrierSet name="+" org.eventb.core.identifier="ROLES"/>
+    <org.eventb.core.carrierSet name="," org.eventb.core.identifier="CONSENTS"/>
+    <org.eventb.core.carrierSet name="-" org.eventb.core.identifier="QUERIES"/>
+    <org.eventb.core.carrierSet name="." org.eventb.core.identifier="STATUSES"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="/" org.eventb.core.identifier="HN"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="0" org.eventb.core.identifier="Name"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="1" org.eventb.core.identifier="Age"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="2" org.eventb.core.identifier="Weight"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="3" org.eventb.core.identifier="Height"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="4" org.eventb.core.identifier="Gender"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="5" org.eventb.core.identifier="Race"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="6" org.eventb.core.identifier="NursingStaff"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="7" org.eventb.core.identifier="Oncologist"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="8" org.eventb.core.identifier="LabStaff"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="9" org.eventb.core.identifier="Void"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name=":" org.eventb.core.identifier="Approve"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name=";" org.eventb.core.identifier="Reject"/>
+    <org.eventb.core.axiom name="=" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(ROLES, {NursingStaff}, {Oncologist}, {LabStaff})"/>
+    <org.eventb.core.axiom name="&gt;" org.eventb.core.label="axm2" org.eventb.core.predicate="partition(FIELDS, {HN}, {Name}, {Age}, {Weight}, {Height}, {Gender}, {Race})"/>
+    <org.eventb.core.axiom name="?" org.eventb.core.label="axm3" org.eventb.core.predicate="partition(STATUSES, {Void}, {Approve}, {Reject})"/>
+    <org.eventb.core.axiom name="@" org.eventb.core.label="axm4" org.eventb.core.predicate="∅ ∈ SESSIONS ⤔ AUTHORIZED_USERS"/>
+    <org.eventb.core.axiom name="A" org.eventb.core.label="axm5" org.eventb.core.predicate="∅ ∈ AUTHORIZED_USERS ⇸ (QUERIES ⤔ PATIENTS)"/>
+    <org.eventb.core.axiom name="B" org.eventb.core.label="axm6" org.eventb.core.predicate="∅ ∈ AUTHORIZED_USERS ⇸ (PATIENTS ↔ FIELDS)"/>
+    <org.eventb.core.axiom name="C" org.eventb.core.label="axm7" org.eventb.core.predicate="∅ ∈ AUTHORIZED_USERS ⇸ (PATIENTS ↔ CONSENTS)"/>
+</org.eventb.core.contextFile>

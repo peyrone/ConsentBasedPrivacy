@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+    <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
+        <org.eventb.core.poIdentifier name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        <org.eventb.core.poIdentifier name="SESSIONS" org.eventb.core.type="ℙ(SESSIONS)"/>
+        <org.eventb.core.poIdentifier name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+        <org.eventb.core.poIdentifier name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+        <org.eventb.core.poIdentifier name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+        <org.eventb.core.poIdentifier name="Approved" org.eventb.core.type="STATUSES"/>
+        <org.eventb.core.poIdentifier name="LegalApprover" org.eventb.core.type="ROLES"/>
+        <org.eventb.core.poIdentifier name="Void" org.eventb.core.type="STATUSES"/>
+        <org.eventb.core.poIdentifier name="Rejected" org.eventb.core.type="STATUSES"/>
+        <org.eventb.core.poIdentifier name="LegalStaff" org.eventb.core.type="ROLES"/>
+        <org.eventb.core.poPredicate name="AUTHORIZED_USERT" org.eventb.core.predicate="partition(ROLES,{LegalStaff},{LegalApprover})" org.eventb.core.source="/ConsentBasedPrivacy/WACX.buc|org.eventb.core.contextFile#WACX|org.eventb.core.axiom#2"/>
+        <org.eventb.core.poPredicate name="AUTHORIZED_USERU" org.eventb.core.predicate="partition(STATUSES,{Void},{Approved},{Rejected})" org.eventb.core.source="/ConsentBasedPrivacy/WACX.buc|org.eventb.core.contextFile#WACX|org.eventb.core.axiom#3"/>
+        <org.eventb.core.poPredicate name="AUTHORIZED_USERV" org.eventb.core.predicate="(∅ ⦂ ℙ(SESSIONS×AUTHORIZED_USERS))∈SESSIONS ⤔ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/WACX.buc|org.eventb.core.contextFile#WACX|org.eventb.core.axiom#4"/>
+        <org.eventb.core.poPredicate name="AUTHORIZED_USERW" org.eventb.core.predicate="(∅ ⦂ ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES))∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES" org.eventb.core.source="/ConsentBasedPrivacy/WACX.buc|org.eventb.core.contextFile#WACX|org.eventb.core.axiom#5"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="markAsDeleted" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        <org.eventb.core.poIdentifier name="userRoles" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ROLES)"/>
+        <org.eventb.core.poIdentifier name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
+        <org.eventb.core.poIdentifier name="pc" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        <org.eventb.core.poIdentifier name="withdrawalState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="INITIALISATION/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTALLHYPwithdrawalStatf"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="(∅ ⦂ ℙ(SESSIONS×AUTHORIZED_USERS))∈SESSIONS ⤔ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.invariant#-"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#'"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.invariant#-"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poSequent#INITIALISATION\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTALLHYPwithdrawalStatf"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="(∅ ⦂ ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES))∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.invariant#7"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#'"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.invariant#7"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poSequent#INITIALISATION\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/act2/FIS" org.eventb.core.accurate="true" org.eventb.core.poDesc="Feasibility of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTALLHYPwithdrawalStatf"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="AUTHORIZED_USERS  ROLES≠(∅ ⦂ ℙ(ℙ(AUTHORIZED_USERS×ROLES)))" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#'|org.eventb.core.action#("/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#'|org.eventb.core.action#("/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTALLHYPwithdrawalStatf"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/act3/FIS" org.eventb.core.accurate="true" org.eventb.core.poDesc="Feasibility of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTALLHYPwithdrawalStatf"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="ℙ1(PATIENTS × CONSENTS)≠(∅ ⦂ ℙ(ℙ(PATIENTS×CONSENTS)))" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#'|org.eventb.core.action#*"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#'|org.eventb.core.action#*"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTALLHYPwithdrawalStatf"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTwithdrawalStatf" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="pc'" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        <org.eventb.core.poIdentifier name="sessions'" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
+        <org.eventb.core.poIdentifier name="markAsDeleted'" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        <org.eventb.core.poIdentifier name="userRoles'" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ROLES)"/>
+        <org.eventb.core.poIdentifier name="withdrawalState'" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPwithdrawalStatf" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTIDENTwithdrawalStatf" org.eventb.core.poStamp="0"/>
+    <org.eventb.core.poSequent name="Login/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTALLHYPwithdrawalStatg"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="sessions∪{s ↦ u}∈SESSIONS ⤔ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.invariant#-"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#1"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.invariant#-"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poSequent#Login\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTwithdrawalStatg" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="u" org.eventb.core.type="AUTHORIZED_USERS"/>
+        <org.eventb.core.poIdentifier name="sessions'" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
+        <org.eventb.core.poIdentifier name="s" org.eventb.core.type="SESSIONS"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPwithdrawalStatg" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTIDENTwithdrawalStatg" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="s∈SESSIONS∧s∉dom(sessions)" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#1|org.eventb.core.guard#)"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="u∈AUTHORIZED_USERS∧u∉ran(sessions)" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#1|org.eventb.core.guard#*"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="sessions∪{s ↦ u}∈SESSIONS ⤔ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#1|org.eventb.core.guard#+"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="CreateWithdrawal/grd1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTIDENTwithdrawalStath"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#2|org.eventb.core.guard#*"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#2|org.eventb.core.guard#*"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTIDENTwithdrawalStath"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="CreateWithdrawal/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTALLHYPwithdrawalStath"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="withdrawalState{{p ↦ c} ↦ Void}∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.invariant#7"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#2"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.invariant#7"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poSequent#CreateWithdrawal\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTwithdrawalStath" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CONSENTS"/>
+        <org.eventb.core.poIdentifier name="s" org.eventb.core.type="SESSIONS"/>
+        <org.eventb.core.poIdentifier name="p" org.eventb.core.type="PATIENTS"/>
+        <org.eventb.core.poIdentifier name="withdrawalState'" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPwithdrawalStath" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTIDENTwithdrawalStath" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="s∈dom(sessions)∧sessions(s)∈dom(userRoles)" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#2|org.eventb.core.guard#*"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="∃r⦂ROLES·r∈userRoles[sessions[{s}]]∧r=LegalStaff" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#2|org.eventb.core.guard#+"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="p∈dom(pc)∧c∈ran(pc)∧{p ↦ c}∉dom(withdrawalState)" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#2|org.eventb.core.guard#,"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="withdrawalState{{p ↦ c} ↦ Void}∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#2|org.eventb.core.guard#-"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="ApproveWithdrawal/grd1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTIDENTwithdrawalStati"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#3|org.eventb.core.guard#+"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#3|org.eventb.core.guard#+"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTIDENTwithdrawalStati"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="ApproveWithdrawal/grd4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTHYPwithdrawalStati)"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="pc1∈dom(withdrawalState)∧withdrawalState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#3|org.eventb.core.guard#."/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#3|org.eventb.core.guard#."/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTHYPwithdrawalStati)"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="ApproveWithdrawal/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTALLHYPwithdrawalStati"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="withdrawalState{pc1 ↦ Approved}∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.invariant#7"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#3"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.invariant#7"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poSequent#ApproveWithdrawal\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTwithdrawalStati" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="markAsDeleted'" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        <org.eventb.core.poIdentifier name="pc1" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        <org.eventb.core.poIdentifier name="s" org.eventb.core.type="SESSIONS"/>
+        <org.eventb.core.poIdentifier name="canWithdraw" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="withdrawalState'" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPwithdrawalStati)" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTIDENTwithdrawalStati" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="s∈dom(sessions)∧sessions(s)∈dom(userRoles)" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#3|org.eventb.core.guard#+"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="∃r⦂ROLES·r∈userRoles[sessions[{s}]]∧r=LegalApprover" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#3|org.eventb.core.guard#,"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="pc1∈dom(withdrawalState)" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#3|org.eventb.core.guard#-"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPwithdrawalStati" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTHYPwithdrawalStati)" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="withdrawalState(pc1)=Void∧withdrawalState{pc1 ↦ Approved}∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#3|org.eventb.core.guard#."/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="canWithdraw∈BOOL∧canWithdraw=TRUE" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#3|org.eventb.core.guard#\/"/>
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="markAsDeletedpc1∈PATIENTS ↔ CONSENTS" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#3|org.eventb.core.guard#2"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="RejectWithdrawal/grd1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTIDENTwithdrawalStatj"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#:|org.eventb.core.guard#+"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#:|org.eventb.core.guard#+"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTIDENTwithdrawalStatj"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="RejectWithdrawal/grd4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTHYPwithdrawalStatj)"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="pc1∈dom(withdrawalState)∧withdrawalState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#:|org.eventb.core.guard#."/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#:|org.eventb.core.guard#."/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTHYPwithdrawalStatj)"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="RejectWithdrawal/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTALLHYPwithdrawalStatj"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="withdrawalState{pc1 ↦ Rejected}∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.invariant#7"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#:"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.invariant#7"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poSequent#RejectWithdrawal\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTwithdrawalStatj" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="pc1" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        <org.eventb.core.poIdentifier name="s" org.eventb.core.type="SESSIONS"/>
+        <org.eventb.core.poIdentifier name="canWithdraw" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="withdrawalState'" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPwithdrawalStatj)" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTIDENTwithdrawalStatj" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="s∈dom(sessions)∧sessions(s)∈dom(userRoles)" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#:|org.eventb.core.guard#+"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="∃r⦂ROLES·r∈userRoles[sessions[{s}]]∧r∈{LegalApprover}" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#:|org.eventb.core.guard#,"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="pc1∈dom(withdrawalState)" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#:|org.eventb.core.guard#-"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPwithdrawalStatj" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTHYPwithdrawalStatj)" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="withdrawalState(pc1)=Void∧withdrawalState{pc1 ↦ Rejected}∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#:|org.eventb.core.guard#."/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="canWithdraw∈BOOL∧canWithdraw=FALSE" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#:|org.eventb.core.guard#\/"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="Logout/grd2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTHYPwithdrawalStatk'"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#;|org.eventb.core.guard#)"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#;|org.eventb.core.guard#)"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTHYPwithdrawalStatk'"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="Logout/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTALLHYPwithdrawalStatk"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="sessions ⩥ {sessions(s)}∈SESSIONS ⤔ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.invariant#-"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#;"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.invariant#-"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poSequent#Logout\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="Logout/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTALLHYPwithdrawalStatk"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#;|org.eventb.core.action#*"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#;|org.eventb.core.action#*"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTALLHYPwithdrawalStatk"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTwithdrawalStatk" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="sessions'" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
+        <org.eventb.core.poIdentifier name="s" org.eventb.core.type="SESSIONS"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPwithdrawalStatk'" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTIDENTwithdrawalStatk" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="s∈dom(sessions)" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#;|org.eventb.core.guard#("/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPwithdrawalStatk" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#EVTHYPwithdrawalStatk'" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="sessions ⩥ {sessions(s)}∈SESSIONS ⤔ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.event#;|org.eventb.core.guard#)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/WASM.bpo|org.eventb.core.poFile#WASM|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="sessions∈SESSIONS ⤔ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.invariant#-"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="userRoles∈AUTHORIZED_USERS ↔ ROLES" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.invariant#\/"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="pc∈PATIENTS ↔ CONSENTS" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.invariant#0"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="withdrawalState∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.invariant#7"/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="markAsDeleted∈PATIENTS ↔ CONSENTS" org.eventb.core.source="/ConsentBasedPrivacy/WASM.bum|org.eventb.core.machineFile#WASM|org.eventb.core.invariant#9"/>
+    </org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>
