@@ -34,20 +34,22 @@
     <org.eventb.core.event name="=" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="AddPatient">
         <org.eventb.core.parameter name="'" org.eventb.core.identifier="s"/>
         <org.eventb.core.parameter name="(" org.eventb.core.identifier="p"/>
-        <org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="s ∈ dom(sessions) ∧ sessions(s) ∈ dom(userRoles) ∧ sessions(s) ∉ dom(queries)"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="s ∈ dom(sessions) ∧ sessions(s) ∈ dom(userRoles)"/>
         <org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="∃r·r ∈ userRoles[sessions[{s}]] ∧ r = NursingStaff"/>
         <org.eventb.core.guard name="+" org.eventb.core.label="grd3" org.eventb.core.predicate="p ∈ PATIENTS ∧ p ∉ patients"/>
         <org.eventb.core.action name="," org.eventb.core.assignment="patients ≔ patients ∪ {p}" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="-" org.eventb.core.label="grd4" org.eventb.core.predicate="sessions(s) ∉ dom(queries)"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="&gt;" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="AddConsent">
         <org.eventb.core.parameter name="'" org.eventb.core.identifier="s"/>
         <org.eventb.core.parameter name="(" org.eventb.core.identifier="p"/>
         <org.eventb.core.parameter name=")" org.eventb.core.identifier="c"/>
-        <org.eventb.core.guard name="*" org.eventb.core.label="grd1" org.eventb.core.predicate="s ∈ dom(sessions) ∧ sessions(s) ∈ dom(userRoles) ∧ sessions(s) ∉ dom(queries)"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd1" org.eventb.core.predicate="s ∈ dom(sessions) ∧ sessions(s) ∈ dom(userRoles)"/>
         <org.eventb.core.guard name="+" org.eventb.core.label="grd2" org.eventb.core.predicate="∃r·r ∈ userRoles[sessions[{s}]] ∧ r = NursingStaff"/>
         <org.eventb.core.guard name="," org.eventb.core.label="grd3" org.eventb.core.predicate="p ∈ patients ∧ c ∈ dom(crf) ∧ p ↦ c ∉ pc"/>
         <org.eventb.core.action name="." org.eventb.core.assignment="pc ≔ pc ∪ {p ↦ c}" org.eventb.core.label="act1"/>
         <org.eventb.core.guard name="/" org.eventb.core.label="grd4" org.eventb.core.predicate="pc ∪ {p ↦ c} ∈ PATIENTS ↔ CONSENTS"/>
+        <org.eventb.core.guard name="0" org.eventb.core.label="grd5" org.eventb.core.predicate="sessions(s) ∉ dom(queries)"/>
     </org.eventb.core.event>
     <org.eventb.core.invariant name="?" org.eventb.core.label="inv5" org.eventb.core.predicate="crf ∈ CONSENTS ⇸ (ROLES ↔ FIELDS)"/>
     <org.eventb.core.invariant name="@" org.eventb.core.label="inv6" org.eventb.core.predicate="queries ∈ AUTHORIZED_USERS ⇸ (QUERIES ↔ PATIENTS)"/>
