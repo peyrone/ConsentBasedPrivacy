@@ -2741,7 +2741,7 @@
                                 <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p33,p34,p35,p36"/>
                                 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
                                     <org.eventb.core.prAnte name="'">
-                                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p37,p38,p39"/>
+                                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p37,p38,p39"/>
                                         <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p37,p38">
                                             <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p41">
                                                 <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="p37" org.eventb.core.prInfHyps="p40"/>
@@ -2752,7 +2752,7 @@
                                                             <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p44">
                                                                 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p44" org.eventb.core.prHyps="">
                                                                     <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p45">
-                                                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p45" org.eventb.core.prHyps="p2"/>
+                                                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p45" org.eventb.core.prHyps="p1"/>
                                                                     </org.eventb.core.prAnte>
                                                                 </org.eventb.core.prRule>
                                                             </org.eventb.core.prAnte>
@@ -2772,11 +2772,11 @@
             </org.eventb.core.prAnte>
             <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
         </org.eventb.core.prRule>
-        <org.eventb.core.prIdent name="isValid" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(PATIENTS×CONSENTS))"/>
+        <org.eventb.core.prIdent name="authorizedConsent" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(PATIENTS×CONSENTS))"/>
         <org.eventb.core.prIdent name="queries" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(QUERIES×PATIENTS))"/>
         <org.eventb.core.prIdent name="s" org.eventb.core.type="SESSIONS"/>
         <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
-        <org.eventb.core.prPred name="p39" org.eventb.core.predicate="sessions(s)∈dom(isValid)"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="s∈dom(sessions)∧sessions(s)∈dom(queries)∧sessions(s)∈dom(authorizedConsent)"/>
         <org.eventb.core.prPred name="p10" org.eventb.core.predicate="FIELDS={HN,Name,Age,Weight,Height,Gender,Race}">
             <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
             <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
@@ -2827,7 +2827,6 @@
             <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
             <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="s∈dom(sessions)∧sessions(s)∈dom(queries)∧sessions(s)∈dom(isValid)"/>
         <org.eventb.core.prPred name="p14" org.eventb.core.predicate="¬HN=Height">
             <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
             <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
@@ -2838,6 +2837,7 @@
             <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
             <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
         </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p39" org.eventb.core.predicate="sessions(s)∈dom(authorizedConsent)"/>
         <org.eventb.core.prPred name="p34" org.eventb.core.predicate="¬Void=Approve">
             <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
             <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
@@ -2855,7 +2855,7 @@
             <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
             <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="queries∈AUTHORIZED_USERS ⇸ (QUERIES ↔ PATIENTS)"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="queries∈AUTHORIZED_USERS ⇸ (QUERIES ↔ PATIENTS)"/>
         <org.eventb.core.prPred name="p33" org.eventb.core.predicate="STATUSES={Void,Approve,Reject}">
             <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
             <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
@@ -2968,9 +2968,9 @@
             <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
             <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="ExecuteQuery/grd3/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5" org.eventb.core.prSets="AUTHORIZED_USERS,CONSENTS,PATIENTS,QUERIES,SESSIONS">
@@ -2987,10 +2987,10 @@
                             <org.eventb.core.prAnte name="'">
                                 <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p34" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p35,p36,p37,p38"/>
                                 <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p35,p36,p37,p38"/>
-                                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2,p4">
+                                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p3,p4">
                                     <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p42">
                                         <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="p4,p5" org.eventb.core.prInfHyps="p39"/>
-                                        <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p40" org.eventb.core.prHyps="p4,p2" org.eventb.core.prInfHyps="p41"/>
+                                        <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p40" org.eventb.core.prHyps="p4,p3" org.eventb.core.prInfHyps="p41"/>
                                         <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p42" org.eventb.core.prHyps="">
                                             <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p47">
                                                 <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p43" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p44,p45"/>
@@ -3000,7 +3000,7 @@
                                                     <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p48">
                                                         <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p48" org.eventb.core.prHyps="">
                                                             <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p49">
-                                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p49" org.eventb.core.prHyps="p3"/>
+                                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p49" org.eventb.core.prHyps="p2"/>
                                                             </org.eventb.core.prAnte>
                                                         </org.eventb.core.prRule>
                                                     </org.eventb.core.prAnte>
@@ -3018,11 +3018,11 @@
             </org.eventb.core.prAnte>
             <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
         </org.eventb.core.prRule>
-        <org.eventb.core.prIdent name="isValid" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(PATIENTS×CONSENTS))"/>
+        <org.eventb.core.prIdent name="authorizedConsent" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(PATIENTS×CONSENTS))"/>
         <org.eventb.core.prIdent name="queries" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(QUERIES×PATIENTS))"/>
         <org.eventb.core.prIdent name="s" org.eventb.core.type="SESSIONS"/>
         <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
         <org.eventb.core.prPred name="p7" org.eventb.core.predicate="ROLES={NursingStaff,Oncologist,LabStaff}">
             <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
             <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
@@ -3045,12 +3045,12 @@
             <org.eventb.core.prIdent name="c" org.eventb.core.type="CONSENTS"/>
             <org.eventb.core.prIdent name="crf" org.eventb.core.type="ℙ(CONSENTS×ℙ(ROLES×FIELDS))"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="s∈dom(sessions)∧sessions(s)∈dom(queries)∧sessions(s)∈dom(isValid)"/>
         <org.eventb.core.prPred name="p16" org.eventb.core.predicate="¬HN=Height">
             <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
             <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
             <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
         </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p46" org.eventb.core.predicate="sessions(s)∈dom(authorizedConsent)"/>
         <org.eventb.core.prPred name="p40" org.eventb.core.predicate="s∈dom(sessions)⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
         <org.eventb.core.prPred name="p41" org.eventb.core.predicate="⊤⇒⊤"/>
         <org.eventb.core.prPred name="p37" org.eventb.core.predicate="¬Void=Reject">
@@ -3058,7 +3058,6 @@
             <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
             <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p48" org.eventb.core.predicate="⊤∧isValid∈AUTHORIZED_USERS ⇸ ℙ(PATIENTS × CONSENTS)"/>
         <org.eventb.core.prPred name="p35" org.eventb.core.predicate="STATUSES={Void,Approve,Reject}">
             <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
             <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
@@ -3070,12 +3069,13 @@
             <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
             <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
         </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p42" org.eventb.core.predicate="⊤∧⊤∧sessions(s)∈dom(authorizedConsent)∧authorizedConsent∈AUTHORIZED_USERS ⇸ ℙ(PATIENTS × CONSENTS)"/>
         <org.eventb.core.prPred name="p26" org.eventb.core.predicate="¬Age=Gender">
             <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
             <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
             <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p49" org.eventb.core.predicate="isValid∈AUTHORIZED_USERS ⇸ ℙ(PATIENTS × CONSENTS)"/>
+        <org.eventb.core.prPred name="p47" org.eventb.core.predicate="sessions(s)∈dom(authorizedConsent)∧authorizedConsent∈AUTHORIZED_USERS ⇸ ℙ(PATIENTS × CONSENTS)"/>
         <org.eventb.core.prPred name="p38" org.eventb.core.predicate="¬Approve=Reject">
             <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
             <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
@@ -3091,7 +3091,7 @@
             <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
             <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p42" org.eventb.core.predicate="⊤∧⊤∧sessions(s)∈dom(isValid)∧isValid∈AUTHORIZED_USERS ⇸ ℙ(PATIENTS × CONSENTS)"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS∧sessions(s)∈dom(authorizedConsent)∧authorizedConsent∈AUTHORIZED_USERS ⇸ ℙ(PATIENTS × CONSENTS)"/>
         <org.eventb.core.prPred name="p15" org.eventb.core.predicate="¬HN=Weight">
             <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
             <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
@@ -3102,6 +3102,7 @@
             <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
             <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
         </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p39" org.eventb.core.predicate="⊤∧⊤∧sessions(s)∈dom(authorizedConsent)"/>
         <org.eventb.core.prPred name="p43" org.eventb.core.predicate="p∈ran(queries(sessions(s)))∧c∈dom(crf)">
             <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
             <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
@@ -3109,8 +3110,8 @@
             <org.eventb.core.prIdent name="crf" org.eventb.core.type="ℙ(CONSENTS×ℙ(ROLES×FIELDS))"/>
             <org.eventb.core.prIdent name="p" org.eventb.core.type="PATIENTS"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p46" org.eventb.core.predicate="sessions(s)∈dom(isValid)"/>
-        <org.eventb.core.prPred name="p47" org.eventb.core.predicate="sessions(s)∈dom(isValid)∧isValid∈AUTHORIZED_USERS ⇸ ℙ(PATIENTS × CONSENTS)"/>
+        <org.eventb.core.prPred name="p49" org.eventb.core.predicate="authorizedConsent∈AUTHORIZED_USERS ⇸ ℙ(PATIENTS × CONSENTS)"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="s∈dom(sessions)∧sessions(s)∈dom(queries)∧sessions(s)∈dom(authorizedConsent)"/>
         <org.eventb.core.prPred name="p12" org.eventb.core.predicate="FIELDS={HN,Name,Age,Weight,Height,Gender,Race}">
             <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
             <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
@@ -3121,6 +3122,7 @@
             <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
             <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
         </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="authorizedConsent∈AUTHORIZED_USERS ⇸ (PATIENTS ↔ CONSENTS)"/>
         <org.eventb.core.prPred name="p10" org.eventb.core.predicate="¬Oncologist=LabStaff">
             <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
             <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
@@ -3166,7 +3168,6 @@
             <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
             <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS∧sessions(s)∈dom(isValid)∧isValid∈AUTHORIZED_USERS ⇸ ℙ(PATIENTS × CONSENTS)"/>
         <org.eventb.core.prPred name="p6" org.eventb.core.predicate="partition(ROLES,{NursingStaff},{Oncologist},{LabStaff})">
             <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
             <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
@@ -3178,6 +3179,7 @@
             <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
             <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
         </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p48" org.eventb.core.predicate="⊤∧authorizedConsent∈AUTHORIZED_USERS ⇸ ℙ(PATIENTS × CONSENTS)"/>
         <org.eventb.core.prPred name="p34" org.eventb.core.predicate="partition(STATUSES,{Void},{Approve},{Reject})">
             <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
             <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
@@ -3199,7 +3201,6 @@
             <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
             <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="isValid∈AUTHORIZED_USERS ⇸ (PATIENTS ↔ CONSENTS)"/>
         <org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬NursingStaff=LabStaff">
             <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
             <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
@@ -3230,10 +3231,9 @@
             <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
             <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p39" org.eventb.core.predicate="⊤∧⊤∧sessions(s)∈dom(isValid)"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="ExecuteQuery/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0" org.eventb.core.prSets="AUTHORIZED_USERS,CONSENTS,FIELDS,PATIENTS,ROLES,SESSIONS">
@@ -3245,7 +3245,8 @@
         <org.eventb.core.prIdent name="pf" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(PATIENTS×FIELDS))"/>
         <org.eventb.core.prIdent name="s" org.eventb.core.type="SESSIONS"/>
         <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="pf{sessions(s) ↦ {p} × ran(crf(c))}∈AUTHORIZED_USERS ⇸ (PATIENTS ↔ FIELDS)"/>
+        <org.eventb.core.prIdent name="userRoles" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ROLES)"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="pf{sessions(s) ↦ {p} × ran(userRoles[sessions[{s}]] ◁ crf(c))}∈AUTHORIZED_USERS ⇸ (PATIENTS ↔ FIELDS)"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="ExecuteQuery/act1/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4" org.eventb.core.prSets="AUTHORIZED_USERS,CONSENTS,FIELDS,PATIENTS,QUERIES,ROLES,SESSIONS">
@@ -3478,9 +3479,9 @@
             <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
             <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="ExecuteQuery/grd4/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="AUTHORIZED_USERS,SESSIONS">
@@ -11792,18 +11793,18 @@
             <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
             <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="Logout/inv9/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0" org.eventb.core.prSets="AUTHORIZED_USERS,CONSENTS,PATIENTS,SESSIONS">
         <org.eventb.core.lang name="L"/>
         <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0"/>
-        <org.eventb.core.prIdent name="isValid" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(PATIENTS×CONSENTS))"/>
+        <org.eventb.core.prIdent name="authorizedConsent" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(PATIENTS×CONSENTS))"/>
         <org.eventb.core.prIdent name="s" org.eventb.core.type="SESSIONS"/>
         <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="{sessions(s)} ⩤ isValid∈AUTHORIZED_USERS ⇸ (PATIENTS ↔ CONSENTS)"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="{sessions(s)} ⩤ authorizedConsent∈AUTHORIZED_USERS ⇸ (PATIENTS ↔ CONSENTS)"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="Logout/act4/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="AUTHORIZED_USERS,SESSIONS">
@@ -13521,5 +13522,1898 @@
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="ExecuteQuery/grd6/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="AUTHORIZED_USERS,SESSIONS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(ROLES,{NursingStaff},{Oncologist},{LabStaff}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p4,p5,p6,p7"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p4,p5,p6,p7"/>
+                <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(FIELDS,{HN},{Name},{Age},{Weight},{Height},{Gender},{Race}))" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p8" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30"/>
+                        <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30"/>
+                        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(STATUSES,{Void},{Approve},{Reject}))" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p31" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p32,p33,p34,p35"/>
+                                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p32,p33,p34,p35"/>
+                                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p42">
+                                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p36" org.eventb.core.prHyps="p2,p38,p39" org.eventb.core.prInfHyps="p37"/>
+                                        <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p40" org.eventb.core.prHyps="p2,p1" org.eventb.core.prInfHyps="p41"/>
+                                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p42" org.eventb.core.prHyps="">
+                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p51">
+                                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p43" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p44,p45"/>
+                                                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p46" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p47"/>
+                                                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p48" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p49,p50"/>
+                                                <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p37"/>
+                                                <org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p41"/>
+                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p51" org.eventb.core.prHyps=""/>
+                                            </org.eventb.core.prAnte>
+                                        </org.eventb.core.prRule>
+                                    </org.eventb.core.prAnte>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                    <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="s" org.eventb.core.type="SESSIONS"/>
+        <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
+        <org.eventb.core.prPred name="p42" org.eventb.core.predicate="⊤∧⊤"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="ROLES={NursingStaff,Oncologist,LabStaff}">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="¬Name=Gender">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p30" org.eventb.core.predicate="¬Gender=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p45" org.eventb.core.predicate="c∈dom(crf)">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+            <org.eventb.core.prIdent name="c" org.eventb.core.type="CONSENTS"/>
+            <org.eventb.core.prIdent name="crf" org.eventb.core.type="ℙ(CONSENTS×ℙ(ROLES×FIELDS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬HN=Height">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p36" org.eventb.core.predicate="s∈dom(sessions)∧sessions(s)∈dom(queries)∧sessions(s)∈dom(isValid)">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="QUERIES" org.eventb.core.type="ℙ(QUERIES)"/>
+            <org.eventb.core.prIdent name="isValid" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(PATIENTS×CONSENTS))"/>
+            <org.eventb.core.prIdent name="queries" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(QUERIES×PATIENTS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p40" org.eventb.core.predicate="s∈dom(sessions)⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p41" org.eventb.core.predicate="⊤⇒⊤"/>
+        <org.eventb.core.prPred name="p34" org.eventb.core.predicate="¬Void=Reject">
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p48" org.eventb.core.predicate="∀r⦂ROLES·r∈userRoles[sessions[{s}]]∧x∈(crf(c))[{r}]">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+            <org.eventb.core.prIdent name="c" org.eventb.core.type="CONSENTS"/>
+            <org.eventb.core.prIdent name="crf" org.eventb.core.type="ℙ(CONSENTS×ℙ(ROLES×FIELDS))"/>
+            <org.eventb.core.prIdent name="userRoles" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ROLES)"/>
+            <org.eventb.core.prIdent name="x" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p32" org.eventb.core.predicate="STATUSES={Void,Approve,Reject}">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="¬HN=Gender">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p23" org.eventb.core.predicate="¬Age=Gender">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p50" org.eventb.core.predicate="∀r⦂ROLES·x∈(crf(c))[{r}]">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+            <org.eventb.core.prIdent name="c" org.eventb.core.type="CONSENTS"/>
+            <org.eventb.core.prIdent name="crf" org.eventb.core.type="ℙ(CONSENTS×ℙ(ROLES×FIELDS))"/>
+            <org.eventb.core.prIdent name="x" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p35" org.eventb.core.predicate="¬Approve=Reject">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="¬Name=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p22" org.eventb.core.predicate="¬Age=Height">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬HN=Weight">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="¬HN=Age">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p43" org.eventb.core.predicate="p∈ran(queries(sessions(s)))∧c∈dom(crf)">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="QUERIES" org.eventb.core.type="ℙ(QUERIES)"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+            <org.eventb.core.prIdent name="c" org.eventb.core.type="CONSENTS"/>
+            <org.eventb.core.prIdent name="crf" org.eventb.core.type="ℙ(CONSENTS×ℙ(ROLES×FIELDS))"/>
+            <org.eventb.core.prIdent name="p" org.eventb.core.type="PATIENTS"/>
+            <org.eventb.core.prIdent name="queries" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(QUERIES×PATIENTS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p39" org.eventb.core.predicate="sessions(s)∈dom(isValid)">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="isValid" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(PATIENTS×CONSENTS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="FIELDS={HN,Name,Age,Weight,Height,Gender,Race}">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬Oncologist=LabStaff">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="s∈dom(sessions)"/>
+        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="¬Age=Weight">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p38" org.eventb.core.predicate="sessions(s)∈dom(queries)">
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="QUERIES" org.eventb.core.type="ℙ(QUERIES)"/>
+            <org.eventb.core.prIdent name="queries" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(QUERIES×PATIENTS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="¬HN=Name">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p44" org.eventb.core.predicate="p∈ran(queries(sessions(s)))">
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="QUERIES" org.eventb.core.type="ℙ(QUERIES)"/>
+            <org.eventb.core.prIdent name="p" org.eventb.core.type="PATIENTS"/>
+            <org.eventb.core.prIdent name="queries" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(QUERIES×PATIENTS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="¬Name=Age">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p27" org.eventb.core.predicate="¬Weight=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p49" org.eventb.core.predicate="∀r⦂ROLES·r∈userRoles[sessions[{s}]]">
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+            <org.eventb.core.prIdent name="userRoles" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p33" org.eventb.core.predicate="¬Void=Approve">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p47" org.eventb.core.predicate="¬sessions(s)∈dom(pf)">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="pf" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(PATIENTS×FIELDS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p28" org.eventb.core.predicate="¬Height=Gender">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p51" org.eventb.core.predicate="⊤"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="¬Name=Weight">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(ROLES,{NursingStaff},{Oncologist},{LabStaff})">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬NursingStaff=Oncologist">
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p46" org.eventb.core.predicate="sessions(s)∉dom(pf)">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="pf" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(PATIENTS×FIELDS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p31" org.eventb.core.predicate="partition(STATUSES,{Void},{Approve},{Reject})">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p37" org.eventb.core.predicate="⊤∧⊤∧⊤"/>
+        <org.eventb.core.prPred name="p24" org.eventb.core.predicate="¬Age=Race">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p29" org.eventb.core.predicate="¬Height=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="¬Name=Height">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="¬NursingStaff=LabStaff">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p25" org.eventb.core.predicate="¬Weight=Height">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p26" org.eventb.core.predicate="¬Weight=Gender">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="¬HN=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="partition(FIELDS,{HN},{Name},{Age},{Weight},{Height},{Gender},{Race})">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/inv10/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(ROLES,{NursingStaff},{Oncologist},{LabStaff}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1,p2,p3,p4"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p1,p2,p3,p4"/>
+                <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(FIELDS,{HN},{Name},{Age},{Weight},{Height},{Gender},{Race}))" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p5" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27"/>
+                        <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27"/>
+                        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(STATUSES,{Void},{Approve},{Reject}))" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p28" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p29,p30,p31,p32"/>
+                                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p29,p30,p31,p32"/>
+                            </org.eventb.core.prAnte>
+                            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                    <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="FIELDS={HN,Name,Age,Weight,Height,Gender,Race}">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="¬Oncologist=LabStaff">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="¬Age=Weight">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="ROLES={NursingStaff,Oncologist,LabStaff}">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬HN=Name">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="¬Name=Gender">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p27" org.eventb.core.predicate="¬Gender=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬Name=Age">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="¬HN=Height">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p24" org.eventb.core.predicate="¬Weight=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p30" org.eventb.core.predicate="¬Void=Approve">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p25" org.eventb.core.predicate="¬Height=Gender">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p31" org.eventb.core.predicate="¬Void=Reject">
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p29" org.eventb.core.predicate="STATUSES={Void,Approve,Reject}">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="¬HN=Gender">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="¬Name=Weight">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="¬Age=Gender">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="partition(ROLES,{NursingStaff},{Oncologist},{LabStaff})">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="¬NursingStaff=Oncologist">
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p32" org.eventb.core.predicate="¬Approve=Reject">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="¬Name=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="¬Age=Height">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p28" org.eventb.core.predicate="partition(STATUSES,{Void},{Approve},{Reject})">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬HN=Weight">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="¬Age=Race">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p26" org.eventb.core.predicate="¬Height=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬HN=Age">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="¬Name=Height">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="¬NursingStaff=LabStaff">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p22" org.eventb.core.predicate="¬Weight=Height">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p23" org.eventb.core.predicate="¬Weight=Gender">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬HN=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition(FIELDS,{HN},{Name},{Age},{Weight},{Height},{Gender},{Race})">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="CheckAuthorizeConsent/grd1/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="AUTHORIZED_USERS,SESSIONS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(ROLES,{NursingStaff},{Oncologist},{LabStaff}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3,p4,p5,p6"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p3,p4,p5,p6"/>
+                <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(FIELDS,{HN},{Name},{Age},{Weight},{Height},{Gender},{Race}))" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p7" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29"/>
+                        <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29"/>
+                        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(STATUSES,{Void},{Approve},{Reject}))" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p30" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p31,p32,p33,p34"/>
+                                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p31,p32,p33,p34"/>
+                                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                                    <org.eventb.core.prAnte name="'">
+                                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p35"/>
+                                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p36"/>
+                                        <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p37"/>
+                                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p39" org.eventb.core.prHyps="p38">
+                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p39" org.eventb.core.prHyps="p1"/>
+                                            </org.eventb.core.prAnte>
+                                        </org.eventb.core.prRule>
+                                    </org.eventb.core.prAnte>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                    <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="s" org.eventb.core.type="SESSIONS"/>
+        <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
+        <org.eventb.core.prPred name="p35" org.eventb.core.predicate="patients∈ℙ(PATIENTS)">
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="patients" org.eventb.core.type="ℙ(PATIENTS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="FIELDS={HN,Name,Age,Weight,Height,Gender,Race}">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="¬Oncologist=LabStaff">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p39" org.eventb.core.predicate="sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="¬Age=Weight">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p38" org.eventb.core.predicate="s∈dom(sessions)"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="ROLES={NursingStaff,Oncologist,LabStaff}">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬HN=Name">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="¬Name=Gender">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p29" org.eventb.core.predicate="¬Gender=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="¬Name=Age">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬HN=Height">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p26" org.eventb.core.predicate="¬Weight=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p32" org.eventb.core.predicate="¬Void=Approve">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p27" org.eventb.core.predicate="¬Height=Gender">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="s∈dom(sessions)⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p33" org.eventb.core.predicate="¬Void=Reject">
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p31" org.eventb.core.predicate="STATUSES={Void,Approve,Reject}">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬HN=Gender">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="¬Name=Weight">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p22" org.eventb.core.predicate="¬Age=Gender">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ROLES,{NursingStaff},{Oncologist},{LabStaff})">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="¬NursingStaff=Oncologist">
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="sessions∈SESSIONS ⤔ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p34" org.eventb.core.predicate="¬Approve=Reject">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="¬Name=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="¬Age=Height">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p30" org.eventb.core.predicate="partition(STATUSES,{Void},{Approve},{Reject})">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="¬HN=Weight">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p23" org.eventb.core.predicate="¬Age=Race">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p28" org.eventb.core.predicate="¬Height=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="¬HN=Age">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="¬Name=Height">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p36" org.eventb.core.predicate="userRoles∈AUTHORIZED_USERS ↔ ROLES">
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+            <org.eventb.core.prIdent name="userRoles" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬NursingStaff=LabStaff">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p24" org.eventb.core.predicate="¬Weight=Height">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p25" org.eventb.core.predicate="¬Weight=Gender">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="¬HN=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p37" org.eventb.core.predicate="pc∈PATIENTS ↔ CONSENTS">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="pc" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="partition(FIELDS,{HN},{Name},{Age},{Weight},{Height},{Gender},{Race})">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="CheckAuthorizeConsent/grd4/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="r" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="AUTHORIZED_USERS,CONSENTS,FIELDS,PATIENTS,ROLES,SESSIONS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(ROLES,{NursingStaff},{Oncologist},{LabStaff}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p4,p5,p6,p7"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p4,p5,p6,p7"/>
+                <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(FIELDS,{HN},{Name},{Age},{Weight},{Height},{Gender},{Race}))" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p8" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30"/>
+                        <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30"/>
+                        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(STATUSES,{Void},{Approve},{Reject}))" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p31" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p32,p33,p34,p35"/>
+                                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p32,p33,p34,p35"/>
+                                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+                                    <org.eventb.core.prAnte name="'">
+                                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p36" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p37,p38"/>
+                                        <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p39" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p40,p41"/>
+                                        <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p42,p43"/>
+                                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p43">
+                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p46">
+                                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p44" org.eventb.core.prHyps="p37" org.eventb.core.prInfHyps="p45"/>
+                                                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p46" org.eventb.core.prHyps="">
+                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p48">
+                                                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p45" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p47"/>
+                                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                                                            <org.eventb.core.prAnte name="'">
+                                                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p49"/>
+                                                                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p50"/>
+                                                                <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p51"/>
+                                                                <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p40"/>
+                                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees r)" org.eventb.core.prGoal="p48" org.eventb.core.prHyps="">
+                                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p52">
+                                                                        <org.eventb.core.prIdent name="r" org.eventb.core.type="ROLES"/>
+                                                                        <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p52" org.eventb.core.prHyps="">
+                                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p54" org.eventb.core.prHyps="p53">
+                                                                                <org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p54" org.eventb.core.prHyps="p2"/>
+                                                                            </org.eventb.core.prAnte>
+                                                                        </org.eventb.core.prRule>
+                                                                    </org.eventb.core.prAnte>
+                                                                </org.eventb.core.prRule>
+                                                            </org.eventb.core.prAnte>
+                                                        </org.eventb.core.prRule>
+                                                    </org.eventb.core.prAnte>
+                                                </org.eventb.core.prRule>
+                                            </org.eventb.core.prAnte>
+                                        </org.eventb.core.prRule>
+                                    </org.eventb.core.prAnte>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                    <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="c" org.eventb.core.type="CONSENTS"/>
+        <org.eventb.core.prIdent name="crf" org.eventb.core.type="ℙ(CONSENTS×ℙ(ROLES×FIELDS))"/>
+        <org.eventb.core.prIdent name="p" org.eventb.core.type="PATIENTS"/>
+        <org.eventb.core.prIdent name="pc" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        <org.eventb.core.prIdent name="s" org.eventb.core.type="SESSIONS"/>
+        <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
+        <org.eventb.core.prIdent name="userRoles" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ROLES)"/>
+        <org.eventb.core.prPred name="p49" org.eventb.core.predicate="patients∈ℙ(PATIENTS)">
+            <org.eventb.core.prIdent name="patients" org.eventb.core.type="ℙ(PATIENTS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p47" org.eventb.core.predicate="sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="ROLES={NursingStaff,Oncologist,LabStaff}">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="¬Name=Gender">
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p30" org.eventb.core.predicate="¬Gender=Race">
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p40" org.eventb.core.predicate="consentExpired∈BOOL">
+            <org.eventb.core.prIdent name="consentExpired" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p43" org.eventb.core.predicate="c∈dom(crf)"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬HN=Height">
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p45" org.eventb.core.predicate="⊤⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p39" org.eventb.core.predicate="consentExpired∈BOOL∧consentExpired=FALSE">
+            <org.eventb.core.prIdent name="consentExpired" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p44" org.eventb.core.predicate="s∈dom(sessions)⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p34" org.eventb.core.predicate="¬Void=Reject">
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p41" org.eventb.core.predicate="consentExpired=FALSE">
+            <org.eventb.core.prIdent name="consentExpired" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p32" org.eventb.core.predicate="STATUSES={Void,Approve,Reject}">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="¬HN=Gender">
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p23" org.eventb.core.predicate="¬Age=Gender">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p46" org.eventb.core.predicate="∀r⦂ROLES·r∈userRoles[sessions[{s}]]⇒⊤∧crf∈CONSENTS ⇸ ℙ(ROLES × FIELDS)"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀r⦂ROLES·r∈userRoles[sessions[{s}]]⇒c∈dom(crf)∧crf∈CONSENTS ⇸ ℙ(ROLES × FIELDS)"/>
+        <org.eventb.core.prPred name="p35" org.eventb.core.predicate="¬Approve=Reject">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="¬Name=Race">
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p22" org.eventb.core.predicate="¬Age=Height">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬HN=Weight">
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="¬HN=Age">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p50" org.eventb.core.predicate="userRoles∈AUTHORIZED_USERS ↔ ROLES"/>
+        <org.eventb.core.prPred name="p51" org.eventb.core.predicate="pc∈PATIENTS ↔ CONSENTS"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="FIELDS={HN,Name,Age,Weight,Height,Gender,Race}">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬Oncologist=LabStaff">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="¬Age=Weight">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p37" org.eventb.core.predicate="s∈dom(sessions)"/>
+        <org.eventb.core.prPred name="p38" org.eventb.core.predicate="sessions(s)∈dom(queries)">
+            <org.eventb.core.prIdent name="QUERIES" org.eventb.core.type="ℙ(QUERIES)"/>
+            <org.eventb.core.prIdent name="queries" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(QUERIES×PATIENTS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="crf∈CONSENTS ⇸ (ROLES ↔ FIELDS)"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="¬HN=Name">
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="¬Name=Age">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p36" org.eventb.core.predicate="s∈dom(sessions)∧sessions(s)∈dom(queries)">
+            <org.eventb.core.prIdent name="QUERIES" org.eventb.core.type="ℙ(QUERIES)"/>
+            <org.eventb.core.prIdent name="queries" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(QUERIES×PATIENTS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p27" org.eventb.core.predicate="¬Weight=Race">
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p33" org.eventb.core.predicate="¬Void=Approve">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p28" org.eventb.core.predicate="¬Height=Gender">
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="c∈pc[{p}]∧c∈dom(crf)"/>
+        <org.eventb.core.prPred name="p42" org.eventb.core.predicate="c∈pc[{p}]"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="¬Name=Weight">
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p53" org.eventb.core.predicate="r∈userRoles[sessions[{s}]]">
+            <org.eventb.core.prIdent name="r" org.eventb.core.type="ROLES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p54" org.eventb.core.predicate="crf∈CONSENTS ⇸ ℙ(ROLES × FIELDS)"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(ROLES,{NursingStaff},{Oncologist},{LabStaff})">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬NursingStaff=Oncologist">
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p48" org.eventb.core.predicate="∀r⦂ROLES·r∈userRoles[sessions[{s}]]⇒crf∈CONSENTS ⇸ ℙ(ROLES × FIELDS)"/>
+        <org.eventb.core.prPred name="p31" org.eventb.core.predicate="partition(STATUSES,{Void},{Approve},{Reject})">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p24" org.eventb.core.predicate="¬Age=Race">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p29" org.eventb.core.predicate="¬Height=Race">
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p52" org.eventb.core.predicate="r∈userRoles[sessions[{s}]]⇒crf∈CONSENTS ⇸ ℙ(ROLES × FIELDS)">
+            <org.eventb.core.prIdent name="r" org.eventb.core.type="ROLES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="¬Name=Height">
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="¬NursingStaff=LabStaff">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p25" org.eventb.core.predicate="¬Weight=Height">
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p26" org.eventb.core.predicate="¬Weight=Gender">
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="¬HN=Race">
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="partition(FIELDS,{HN},{Name},{Age},{Weight},{Height},{Gender},{Race})">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="CheckAuthorizeConsent/grd5/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="AUTHORIZED_USERS,PATIENTS,QUERIES,SESSIONS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(ROLES,{NursingStaff},{Oncologist},{LabStaff}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p4,p5,p6,p7"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p4,p5,p6,p7"/>
+                <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(FIELDS,{HN},{Name},{Age},{Weight},{Height},{Gender},{Race}))" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p8" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30"/>
+                        <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30"/>
+                        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(STATUSES,{Void},{Approve},{Reject}))" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p31" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p32,p33,p34,p35"/>
+                                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p32,p33,p34,p35"/>
+                                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+                                    <org.eventb.core.prAnte name="'">
+                                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p36,p37"/>
+                                        <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p38" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p39,p40"/>
+                                        <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p41" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p42,p43"/>
+                                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p36">
+                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p47">
+                                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="p36" org.eventb.core.prInfHyps="p44"/>
+                                                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p45" org.eventb.core.prHyps="p43" org.eventb.core.prInfHyps="p46"/>
+                                                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p47" org.eventb.core.prHyps="">
+                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p48">
+                                                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p44" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p48"/>
+                                                        <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p46" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p49"/>
+                                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p48" org.eventb.core.prHyps="p48"/>
+                                                    </org.eventb.core.prAnte>
+                                                </org.eventb.core.prRule>
+                                            </org.eventb.core.prAnte>
+                                        </org.eventb.core.prRule>
+                                    </org.eventb.core.prAnte>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                    <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="queries" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(QUERIES×PATIENTS))"/>
+        <org.eventb.core.prIdent name="s" org.eventb.core.type="SESSIONS"/>
+        <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
+        <org.eventb.core.prPred name="p48" org.eventb.core.predicate="sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="ROLES={NursingStaff,Oncologist,LabStaff}">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="¬Name=Gender">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p30" org.eventb.core.predicate="¬Gender=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p39" org.eventb.core.predicate="consentExpired∈BOOL">
+            <org.eventb.core.prIdent name="consentExpired" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p43" org.eventb.core.predicate="c∈dom(crf)">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+            <org.eventb.core.prIdent name="c" org.eventb.core.type="CONSENTS"/>
+            <org.eventb.core.prIdent name="crf" org.eventb.core.type="ℙ(CONSENTS×ℙ(ROLES×FIELDS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬HN=Height">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p44" org.eventb.core.predicate="⊤⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="s∈dom(sessions)⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p38" org.eventb.core.predicate="consentExpired∈BOOL∧consentExpired=FALSE">
+            <org.eventb.core.prIdent name="consentExpired" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p34" org.eventb.core.predicate="¬Void=Reject">
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p40" org.eventb.core.predicate="consentExpired=FALSE">
+            <org.eventb.core.prIdent name="consentExpired" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p32" org.eventb.core.predicate="STATUSES={Void,Approve,Reject}">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="¬HN=Gender">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p23" org.eventb.core.predicate="¬Age=Gender">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p46" org.eventb.core.predicate="∀r⦂ROLES·r∈userRoles[sessions[{s}]]⇒⊤∧crf∈CONSENTS ⇸ ℙ(ROLES × FIELDS)">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+            <org.eventb.core.prIdent name="crf" org.eventb.core.type="ℙ(CONSENTS×ℙ(ROLES×FIELDS))"/>
+            <org.eventb.core.prIdent name="userRoles" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p45" org.eventb.core.predicate="∀r⦂ROLES·r∈userRoles[sessions[{s}]]⇒c∈dom(crf)∧crf∈CONSENTS ⇸ ℙ(ROLES × FIELDS)">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+            <org.eventb.core.prIdent name="c" org.eventb.core.type="CONSENTS"/>
+            <org.eventb.core.prIdent name="crf" org.eventb.core.type="ℙ(CONSENTS×ℙ(ROLES×FIELDS))"/>
+            <org.eventb.core.prIdent name="userRoles" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p35" org.eventb.core.predicate="¬Approve=Reject">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="¬Name=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p22" org.eventb.core.predicate="¬Age=Height">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p47" org.eventb.core.predicate="⊤∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬HN=Weight">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="¬HN=Age">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="FIELDS={HN,Name,Age,Weight,Height,Gender,Race}">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬Oncologist=LabStaff">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="¬Age=Weight">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p36" org.eventb.core.predicate="s∈dom(sessions)"/>
+        <org.eventb.core.prPred name="p37" org.eventb.core.predicate="sessions(s)∈dom(queries)"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="¬HN=Name">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="s∈dom(sessions)∧sessions(s)∈dom(queries)"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="¬Name=Age">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p27" org.eventb.core.predicate="¬Weight=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p33" org.eventb.core.predicate="¬Void=Approve">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p28" org.eventb.core.predicate="¬Height=Gender">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p41" org.eventb.core.predicate="c∈pc[{p}]∧c∈dom(crf)">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+            <org.eventb.core.prIdent name="c" org.eventb.core.type="CONSENTS"/>
+            <org.eventb.core.prIdent name="crf" org.eventb.core.type="ℙ(CONSENTS×ℙ(ROLES×FIELDS))"/>
+            <org.eventb.core.prIdent name="p" org.eventb.core.type="PATIENTS"/>
+            <org.eventb.core.prIdent name="pc" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p42" org.eventb.core.predicate="c∈pc[{p}]">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="c" org.eventb.core.type="CONSENTS"/>
+            <org.eventb.core.prIdent name="p" org.eventb.core.type="PATIENTS"/>
+            <org.eventb.core.prIdent name="pc" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="¬Name=Weight">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(ROLES,{NursingStaff},{Oncologist},{LabStaff})">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬NursingStaff=Oncologist">
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p49" org.eventb.core.predicate="∀r⦂ROLES·r∈userRoles[sessions[{s}]]⇒crf∈CONSENTS ⇸ ℙ(ROLES × FIELDS)">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+            <org.eventb.core.prIdent name="crf" org.eventb.core.type="ℙ(CONSENTS×ℙ(ROLES×FIELDS))"/>
+            <org.eventb.core.prIdent name="userRoles" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p31" org.eventb.core.predicate="partition(STATUSES,{Void},{Approve},{Reject})">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p24" org.eventb.core.predicate="¬Age=Race">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p29" org.eventb.core.predicate="¬Height=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="¬Name=Height">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="¬NursingStaff=LabStaff">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p25" org.eventb.core.predicate="¬Weight=Height">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p26" org.eventb.core.predicate="¬Weight=Gender">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="¬HN=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="partition(FIELDS,{HN},{Name},{Age},{Weight},{Height},{Gender},{Race})">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="CheckAuthorizeConsent/grd6/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="AUTHORIZED_USERS,SESSIONS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(ROLES,{NursingStaff},{Oncologist},{LabStaff}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p4,p5,p6,p7"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p4,p5,p6,p7"/>
+                <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(FIELDS,{HN},{Name},{Age},{Weight},{Height},{Gender},{Race}))" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p8" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30"/>
+                        <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30"/>
+                        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(STATUSES,{Void},{Approve},{Reject}))" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p31" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p32,p33,p34,p35"/>
+                                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p32,p33,p34,p35"/>
+                                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p40">
+                                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p36" org.eventb.core.prHyps="p2" org.eventb.core.prInfHyps="p37"/>
+                                        <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p38" org.eventb.core.prHyps="p2,p1" org.eventb.core.prInfHyps="p39"/>
+                                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p40" org.eventb.core.prHyps="">
+                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p50">
+                                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p41" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p42,p43"/>
+                                                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p44" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p45,p46"/>
+                                                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p47" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p48"/>
+                                                <org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p37" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p49"/>
+                                                <org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p39"/>
+                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p50" org.eventb.core.prHyps=""/>
+                                            </org.eventb.core.prAnte>
+                                        </org.eventb.core.prRule>
+                                    </org.eventb.core.prAnte>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                    <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="s" org.eventb.core.type="SESSIONS"/>
+        <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
+        <org.eventb.core.prPred name="p40" org.eventb.core.predicate="⊤∧⊤"/>
+        <org.eventb.core.prPred name="p48" org.eventb.core.predicate="¬sessions(s)∈dom(isValid)">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="isValid" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(PATIENTS×CONSENTS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="ROLES={NursingStaff,Oncologist,LabStaff}">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="¬Name=Gender">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p30" org.eventb.core.predicate="¬Gender=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p42" org.eventb.core.predicate="consentExpired∈BOOL">
+            <org.eventb.core.prIdent name="consentExpired" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p46" org.eventb.core.predicate="c∈dom(crf)">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+            <org.eventb.core.prIdent name="c" org.eventb.core.type="CONSENTS"/>
+            <org.eventb.core.prIdent name="crf" org.eventb.core.type="ℙ(CONSENTS×ℙ(ROLES×FIELDS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬HN=Height">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p38" org.eventb.core.predicate="s∈dom(sessions)⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p41" org.eventb.core.predicate="consentExpired∈BOOL∧consentExpired=FALSE">
+            <org.eventb.core.prIdent name="consentExpired" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p39" org.eventb.core.predicate="⊤⇒⊤"/>
+        <org.eventb.core.prPred name="p34" org.eventb.core.predicate="¬Void=Reject">
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p43" org.eventb.core.predicate="consentExpired=FALSE">
+            <org.eventb.core.prIdent name="consentExpired" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p32" org.eventb.core.predicate="STATUSES={Void,Approve,Reject}">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="¬HN=Gender">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p23" org.eventb.core.predicate="¬Age=Gender">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p37" org.eventb.core.predicate="⊤∧sessions(s)∈dom(queries)">
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="QUERIES" org.eventb.core.type="ℙ(QUERIES)"/>
+            <org.eventb.core.prIdent name="queries" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(QUERIES×PATIENTS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p35" org.eventb.core.predicate="¬Approve=Reject">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="¬Name=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p22" org.eventb.core.predicate="¬Age=Height">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬HN=Weight">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="¬HN=Age">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p47" org.eventb.core.predicate="sessions(s)∉dom(isValid)">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="isValid" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(PATIENTS×CONSENTS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="FIELDS={HN,Name,Age,Weight,Height,Gender,Race}">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬Oncologist=LabStaff">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="s∈dom(sessions)"/>
+        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="¬Age=Weight">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p49" org.eventb.core.predicate="sessions(s)∈dom(queries)">
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="QUERIES" org.eventb.core.type="ℙ(QUERIES)"/>
+            <org.eventb.core.prIdent name="queries" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(QUERIES×PATIENTS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="¬HN=Name">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="¬Name=Age">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p36" org.eventb.core.predicate="s∈dom(sessions)∧sessions(s)∈dom(queries)">
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="QUERIES" org.eventb.core.type="ℙ(QUERIES)"/>
+            <org.eventb.core.prIdent name="queries" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(QUERIES×PATIENTS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p27" org.eventb.core.predicate="¬Weight=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p33" org.eventb.core.predicate="¬Void=Approve">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p28" org.eventb.core.predicate="¬Height=Gender">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p44" org.eventb.core.predicate="c∈pc[{p}]∧c∈dom(crf)">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+            <org.eventb.core.prIdent name="c" org.eventb.core.type="CONSENTS"/>
+            <org.eventb.core.prIdent name="crf" org.eventb.core.type="ℙ(CONSENTS×ℙ(ROLES×FIELDS))"/>
+            <org.eventb.core.prIdent name="p" org.eventb.core.type="PATIENTS"/>
+            <org.eventb.core.prIdent name="pc" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p45" org.eventb.core.predicate="c∈pc[{p}]">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="c" org.eventb.core.type="CONSENTS"/>
+            <org.eventb.core.prIdent name="p" org.eventb.core.type="PATIENTS"/>
+            <org.eventb.core.prIdent name="pc" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p50" org.eventb.core.predicate="⊤"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="¬Name=Weight">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(ROLES,{NursingStaff},{Oncologist},{LabStaff})">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬NursingStaff=Oncologist">
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p31" org.eventb.core.predicate="partition(STATUSES,{Void},{Approve},{Reject})">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p24" org.eventb.core.predicate="¬Age=Race">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p29" org.eventb.core.predicate="¬Height=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="¬Name=Height">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="¬NursingStaff=LabStaff">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p25" org.eventb.core.predicate="¬Weight=Height">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p26" org.eventb.core.predicate="¬Weight=Gender">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="¬HN=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="partition(FIELDS,{HN},{Name},{Age},{Weight},{Height},{Gender},{Race})">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="CheckAuthorizeConsent/inv9/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0" org.eventb.core.prSets="AUTHORIZED_USERS,CONSENTS,PATIENTS,SESSIONS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0"/>
+        <org.eventb.core.prIdent name="authorizedConsent" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(PATIENTS×CONSENTS))"/>
+        <org.eventb.core.prIdent name="c" org.eventb.core.type="CONSENTS"/>
+        <org.eventb.core.prIdent name="p" org.eventb.core.type="PATIENTS"/>
+        <org.eventb.core.prIdent name="s" org.eventb.core.type="SESSIONS"/>
+        <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="authorizedConsent{sessions(s) ↦ {p ↦ c}}∈AUTHORIZED_USERS ⇸ (PATIENTS ↔ CONSENTS)"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="CheckAuthorizeConsent/act1/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="AUTHORIZED_USERS,SESSIONS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(ROLES,{NursingStaff},{Oncologist},{LabStaff}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p4,p5,p6,p7"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p4,p5,p6,p7"/>
+                <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(FIELDS,{HN},{Name},{Age},{Weight},{Height},{Gender},{Race}))" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p8" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30"/>
+                        <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30"/>
+                        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(STATUSES,{Void},{Approve},{Reject}))" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p31" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p32,p33,p34,p35"/>
+                                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p32,p33,p34,p35"/>
+                                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p40">
+                                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p36" org.eventb.core.prHyps="p2" org.eventb.core.prInfHyps="p37"/>
+                                        <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p38" org.eventb.core.prHyps="p2,p1" org.eventb.core.prInfHyps="p39"/>
+                                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p40" org.eventb.core.prHyps="">
+                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p50">
+                                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p41" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p42,p43"/>
+                                                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p44" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p45,p46"/>
+                                                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p47" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p48"/>
+                                                <org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p37" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p49"/>
+                                                <org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p39"/>
+                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p50" org.eventb.core.prHyps=""/>
+                                            </org.eventb.core.prAnte>
+                                        </org.eventb.core.prRule>
+                                    </org.eventb.core.prAnte>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                    <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="s" org.eventb.core.type="SESSIONS"/>
+        <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
+        <org.eventb.core.prPred name="p40" org.eventb.core.predicate="⊤∧⊤"/>
+        <org.eventb.core.prPred name="p48" org.eventb.core.predicate="¬sessions(s)∈dom(isValid)">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="isValid" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(PATIENTS×CONSENTS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="ROLES={NursingStaff,Oncologist,LabStaff}">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="¬Name=Gender">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p30" org.eventb.core.predicate="¬Gender=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p42" org.eventb.core.predicate="consentExpired∈BOOL">
+            <org.eventb.core.prIdent name="consentExpired" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p46" org.eventb.core.predicate="c∈dom(crf)">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+            <org.eventb.core.prIdent name="c" org.eventb.core.type="CONSENTS"/>
+            <org.eventb.core.prIdent name="crf" org.eventb.core.type="ℙ(CONSENTS×ℙ(ROLES×FIELDS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬HN=Height">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p38" org.eventb.core.predicate="s∈dom(sessions)⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p41" org.eventb.core.predicate="consentExpired∈BOOL∧consentExpired=FALSE">
+            <org.eventb.core.prIdent name="consentExpired" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p39" org.eventb.core.predicate="⊤⇒⊤"/>
+        <org.eventb.core.prPred name="p34" org.eventb.core.predicate="¬Void=Reject">
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p43" org.eventb.core.predicate="consentExpired=FALSE">
+            <org.eventb.core.prIdent name="consentExpired" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p32" org.eventb.core.predicate="STATUSES={Void,Approve,Reject}">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="¬HN=Gender">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p23" org.eventb.core.predicate="¬Age=Gender">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p37" org.eventb.core.predicate="⊤∧sessions(s)∈dom(queries)">
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="QUERIES" org.eventb.core.type="ℙ(QUERIES)"/>
+            <org.eventb.core.prIdent name="queries" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(QUERIES×PATIENTS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p35" org.eventb.core.predicate="¬Approve=Reject">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="¬Name=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p22" org.eventb.core.predicate="¬Age=Height">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬HN=Weight">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="¬HN=Age">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p47" org.eventb.core.predicate="sessions(s)∉dom(isValid)">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="isValid" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(PATIENTS×CONSENTS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="FIELDS={HN,Name,Age,Weight,Height,Gender,Race}">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬Oncologist=LabStaff">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="s∈dom(sessions)"/>
+        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="¬Age=Weight">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p49" org.eventb.core.predicate="sessions(s)∈dom(queries)">
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="QUERIES" org.eventb.core.type="ℙ(QUERIES)"/>
+            <org.eventb.core.prIdent name="queries" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(QUERIES×PATIENTS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="¬HN=Name">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="¬Name=Age">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p36" org.eventb.core.predicate="s∈dom(sessions)∧sessions(s)∈dom(queries)">
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="QUERIES" org.eventb.core.type="ℙ(QUERIES)"/>
+            <org.eventb.core.prIdent name="queries" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(QUERIES×PATIENTS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p27" org.eventb.core.predicate="¬Weight=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p33" org.eventb.core.predicate="¬Void=Approve">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p28" org.eventb.core.predicate="¬Height=Gender">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p44" org.eventb.core.predicate="c∈pc[{p}]∧c∈dom(crf)">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+            <org.eventb.core.prIdent name="c" org.eventb.core.type="CONSENTS"/>
+            <org.eventb.core.prIdent name="crf" org.eventb.core.type="ℙ(CONSENTS×ℙ(ROLES×FIELDS))"/>
+            <org.eventb.core.prIdent name="p" org.eventb.core.type="PATIENTS"/>
+            <org.eventb.core.prIdent name="pc" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p45" org.eventb.core.predicate="c∈pc[{p}]">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="c" org.eventb.core.type="CONSENTS"/>
+            <org.eventb.core.prIdent name="p" org.eventb.core.type="PATIENTS"/>
+            <org.eventb.core.prIdent name="pc" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p50" org.eventb.core.predicate="⊤"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="¬Name=Weight">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(ROLES,{NursingStaff},{Oncologist},{LabStaff})">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬NursingStaff=Oncologist">
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="Oncologist" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p31" org.eventb.core.predicate="partition(STATUSES,{Void},{Approve},{Reject})">
+            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p24" org.eventb.core.predicate="¬Age=Race">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p29" org.eventb.core.predicate="¬Height=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="¬Name=Height">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="¬NursingStaff=LabStaff">
+            <org.eventb.core.prIdent name="LabStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="NursingStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p25" org.eventb.core.predicate="¬Weight=Height">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p26" org.eventb.core.predicate="¬Weight=Gender">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="¬HN=Race">
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="partition(FIELDS,{HN},{Name},{Age},{Weight},{Height},{Gender},{Race})">
+            <org.eventb.core.prIdent name="Age" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
+            <org.eventb.core.prIdent name="Gender" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="HN" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Height" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Race" org.eventb.core.type="FIELDS"/>
+            <org.eventb.core.prIdent name="Weight" org.eventb.core.type="FIELDS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
     </org.eventb.core.prProof>
 </org.eventb.core.prFile>
