@@ -6,10 +6,10 @@
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(SESSIONS×AUTHORIZED_USERS))∈SESSIONS ⤔ AUTHORIZED_USERS"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
     </org.eventb.core.prProof>
-    <org.eventb.core.prProof name="INITIALISATION/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0" org.eventb.core.prSets="CONSENTS,PATIENTS,STATUSES">
+    <org.eventb.core.prProof name="INITIALISATION/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0" org.eventb.core.prSets="CONSENTS,PATIENTS">
         <org.eventb.core.lang name="L"/>
         <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0"/>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES))∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(ℙ(PATIENTS×CONSENTS)×BOOL))∈(PATIENTS ↔ CONSENTS) ⤔ BOOL"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="INITIALISATION/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0" org.eventb.core.prSets="CONSENTS,PATIENTS">
@@ -305,14 +305,13 @@
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
     </org.eventb.core.prProof>
-    <org.eventb.core.prProof name="CreateConsentRequest/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0" org.eventb.core.prSets="CONSENTS,PATIENTS,STATUSES">
+    <org.eventb.core.prProof name="CreateConsentRequest/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0" org.eventb.core.prSets="CONSENTS,PATIENTS">
         <org.eventb.core.lang name="L"/>
         <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0"/>
-        <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
         <org.eventb.core.prIdent name="c" org.eventb.core.type="CONSENTS"/>
-        <org.eventb.core.prIdent name="consentState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
+        <org.eventb.core.prIdent name="isConsentExpired" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×BOOL)"/>
         <org.eventb.core.prIdent name="p" org.eventb.core.type="PATIENTS"/>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="consentState{{p ↦ c} ↦ Void}∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="isConsentExpired{{p ↦ c} ↦ TRUE}∈(PATIENTS ↔ CONSENTS) ⤔ BOOL"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="ApproveConsentRequest/grd1/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="AUTHORIZED_USERS,SESSIONS">
@@ -1773,7 +1772,7 @@
             <org.eventb.core.prAnte name="'">
                 <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3,p4"/>
                 <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p3,p4"/>
-                <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(STATUSES,{Void},{Approve},{Reject}))" org.eventb.core.prHyps="">
+                <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(STATUSES,{Void},{Approved},{Rejected}))" org.eventb.core.prHyps="">
                     <org.eventb.core.prAnte name="'">
                         <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p5" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p6,p7,p8,p9"/>
                         <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p6,p7,p8,p9"/>
@@ -1811,15 +1810,16 @@
             </org.eventb.core.prAnte>
             <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
         </org.eventb.core.prRule>
-        <org.eventb.core.prIdent name="consentState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
+        <org.eventb.core.prIdent name="consentRenewalState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
         <org.eventb.core.prIdent name="pc1" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="STATUSES={Void,Approve,Reject}">
-            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
-            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
-            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
-        </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p18" org.eventb.core.predicate="markAsReceived∈PATIENTS ↔ CONSENTS">
             <org.eventb.core.prIdent name="markAsReceived" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="consentRenewalState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="consentRenewalState∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬Approved=Rejected">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p15" org.eventb.core.predicate="sessions∈SESSIONS ⇸ AUTHORIZED_USERS">
             <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
@@ -1832,14 +1832,9 @@
             <org.eventb.core.prIdent name="s" org.eventb.core.type="SESSIONS"/>
             <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬Approve=Reject">
-            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
-            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="consentState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES"/>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition(STATUSES,{Void},{Approve},{Reject})">
-            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
-            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="STATUSES={Void,Approved,Rejected}">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
             <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ROLES,{LegalStaff},{LegalApprover})">
@@ -1852,21 +1847,26 @@
             <org.eventb.core.prIdent name="LegalStaff" org.eventb.core.type="ROLES"/>
             <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="pc1∈dom(consentState)"/>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬Void=Approve">
-            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
-            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
-        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="pc1∈dom(consentRenewalState)⇒consentRenewalState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES"/>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="pc1∈dom(consentRenewalState)"/>
         <org.eventb.core.prPred name="p14" org.eventb.core.predicate="⊤⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS">
             <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
             <org.eventb.core.prIdent name="SESSIONS" org.eventb.core.type="ℙ(SESSIONS)"/>
             <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="pc1∈dom(consentState)⇒consentState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition(STATUSES,{Void},{Approved},{Rejected})">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p16" org.eventb.core.predicate="userRoles∈AUTHORIZED_USERS ↔ ROLES">
             <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
             <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
             <org.eventb.core.prIdent name="userRoles" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬Void=Rejected">
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p13" org.eventb.core.predicate="s∈dom(sessions)⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS">
             <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
@@ -1874,7 +1874,6 @@
             <org.eventb.core.prIdent name="s" org.eventb.core.type="SESSIONS"/>
             <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="consentState∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES"/>
         <org.eventb.core.prPred name="p12" org.eventb.core.predicate="sessions(s)∈dom(userRoles)">
             <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
             <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
@@ -1891,8 +1890,8 @@
             <org.eventb.core.prIdent name="LegalStaff" org.eventb.core.type="ROLES"/>
             <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬Void=Reject">
-            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬Void=Approved">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
             <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p19" org.eventb.core.predicate="markAsDeleted∈PATIENTS ↔ CONSENTS">
@@ -1906,10 +1905,10 @@
             <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
             <org.eventb.core.prIdent name="userRoles" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ROLES)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
     </org.eventb.core.prProof>
@@ -2552,7 +2551,7 @@
             <org.eventb.core.prAnte name="'">
                 <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3,p4"/>
                 <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p3,p4"/>
-                <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(STATUSES,{Void},{Approve},{Reject}))" org.eventb.core.prHyps="">
+                <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(STATUSES,{Void},{Approved},{Rejected}))" org.eventb.core.prHyps="">
                     <org.eventb.core.prAnte name="'">
                         <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p5" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p6,p7,p8,p9"/>
                         <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p6,p7,p8,p9"/>
@@ -2590,16 +2589,17 @@
             </org.eventb.core.prAnte>
             <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
         </org.eventb.core.prRule>
-        <org.eventb.core.prIdent name="consentState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
+        <org.eventb.core.prIdent name="consentRenewalState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
         <org.eventb.core.prIdent name="markAsReceived" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
         <org.eventb.core.prIdent name="pc1" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="pc1⊈markAsReceived∧pc1∈dom(consentState)⇒consentState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES"/>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="STATUSES={Void,Approve,Reject}">
-            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
-            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
-            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
-        </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p19" org.eventb.core.predicate="markAsReceived∈PATIENTS ↔ CONSENTS"/>
+        <org.eventb.core.prPred name="p23" org.eventb.core.predicate="consentRenewalState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="consentRenewalState∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬pc1⊆markAsReceived∧pc1∈dom(consentRenewalState)⇒consentRenewalState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬Approved=Rejected">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p16" org.eventb.core.predicate="sessions∈SESSIONS ⇸ AUTHORIZED_USERS">
             <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
             <org.eventb.core.prIdent name="SESSIONS" org.eventb.core.type="ℙ(SESSIONS)"/>
@@ -2611,18 +2611,12 @@
             <org.eventb.core.prIdent name="s" org.eventb.core.type="SESSIONS"/>
             <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬pc1⊆markAsReceived∧pc1∈dom(consentState)⇒consentState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬Approve=Reject">
-            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
-            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="¬pc1⊆markAsReceived"/>
-        <org.eventb.core.prPred name="p23" org.eventb.core.predicate="consentState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES"/>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition(STATUSES,{Void},{Approve},{Reject})">
-            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
-            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="STATUSES={Void,Approved,Rejected}">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
             <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
         </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="¬pc1⊆markAsReceived"/>
         <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ROLES,{LegalStaff},{LegalApprover})">
             <org.eventb.core.prIdent name="LegalApprover" org.eventb.core.type="ROLES"/>
             <org.eventb.core.prIdent name="LegalStaff" org.eventb.core.type="ROLES"/>
@@ -2633,20 +2627,26 @@
             <org.eventb.core.prIdent name="LegalStaff" org.eventb.core.type="ROLES"/>
             <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p22" org.eventb.core.predicate="pc1∈dom(consentState)"/>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬Void=Approve">
-            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
-            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
-        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p22" org.eventb.core.predicate="pc1∈dom(consentRenewalState)"/>
         <org.eventb.core.prPred name="p15" org.eventb.core.predicate="⊤⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS">
             <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
             <org.eventb.core.prIdent name="SESSIONS" org.eventb.core.type="ℙ(SESSIONS)"/>
             <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
         </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition(STATUSES,{Void},{Approved},{Rejected})">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p17" org.eventb.core.predicate="userRoles∈AUTHORIZED_USERS ↔ ROLES">
             <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
             <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
             <org.eventb.core.prIdent name="userRoles" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="pc1⊈markAsReceived∧pc1∈dom(consentRenewalState)⇒consentRenewalState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬Void=Rejected">
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p14" org.eventb.core.predicate="s∈dom(sessions)⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS">
             <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
@@ -2654,7 +2654,6 @@
             <org.eventb.core.prIdent name="s" org.eventb.core.type="SESSIONS"/>
             <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="consentState∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES"/>
         <org.eventb.core.prPred name="p12" org.eventb.core.predicate="sessions(s)∈dom(userRoles)">
             <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
             <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
@@ -2671,8 +2670,8 @@
             <org.eventb.core.prIdent name="LegalStaff" org.eventb.core.type="ROLES"/>
             <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬Void=Reject">
-            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬Void=Approved">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
             <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p20" org.eventb.core.predicate="markAsDeleted∈PATIENTS ↔ CONSENTS">
@@ -2686,10 +2685,10 @@
             <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
             <org.eventb.core.prIdent name="userRoles" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ROLES)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
     </org.eventb.core.prProof>
@@ -2811,19 +2810,19 @@
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.falseHyp"/>
     </org.eventb.core.prProof>
-    <org.eventb.core.prProof name="INITIALISATION/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0" org.eventb.core.prSets="CONSENTS,PATIENTS">
+    <org.eventb.core.prProof name="INITIALISATION/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0" org.eventb.core.prSets="CONSENTS,PATIENTS,STATUSES">
         <org.eventb.core.lang name="L"/>
         <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0"/>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(PATIENTS×CONSENTS))∈PATIENTS ⇸ CONSENTS"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES))∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="NotifyPatient/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0" org.eventb.core.prSets="CONSENTS,PATIENTS,STATUSES">
         <org.eventb.core.lang name="L"/>
         <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0"/>
         <org.eventb.core.prIdent name="acceptStatus" org.eventb.core.type="STATUSES"/>
-        <org.eventb.core.prIdent name="markAsReceived" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
+        <org.eventb.core.prIdent name="consentRenewalState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
         <org.eventb.core.prIdent name="pc1" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="markAsReceived{pc1 ↦ acceptStatus}∈(PATIENTS ⇸ CONSENTS) ⤔ STATUSES"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="consentRenewalState{pc1 ↦ acceptStatus}∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="ExtendConsentExpiration/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="CONSENTS,PATIENTS">
@@ -3781,7 +3780,7 @@
             <org.eventb.core.prAnte name="'">
                 <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3,p4"/>
                 <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p3,p4"/>
-                <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(STATUSES,{Void},{Approve},{Reject}))" org.eventb.core.prHyps="">
+                <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(STATUSES,{Void},{Approved},{Rejected}))" org.eventb.core.prHyps="">
                     <org.eventb.core.prAnte name="'">
                         <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p5" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p6,p7,p8,p9"/>
                         <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p6,p7,p8,p9"/>
@@ -3804,8 +3803,8 @@
                                                         <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p24"/>
                                                         <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p25"/>
                                                         <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
-                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p27" org.eventb.core.prHyps="p26">
-                                                                <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p27" org.eventb.core.prHyps="p1"/>
+                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p28" org.eventb.core.prHyps="p26,p27">
+                                                                <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p28" org.eventb.core.prHyps="p1"/>
                                                             </org.eventb.core.prAnte>
                                                         </org.eventb.core.prRule>
                                                     </org.eventb.core.prAnte>
@@ -3822,43 +3821,53 @@
             </org.eventb.core.prAnte>
             <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
         </org.eventb.core.prRule>
-        <org.eventb.core.prIdent name="c" org.eventb.core.type="CONSENTS"/>
         <org.eventb.core.prIdent name="isConsentExpired" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×BOOL)"/>
-        <org.eventb.core.prIdent name="p" org.eventb.core.type="PATIENTS"/>
+        <org.eventb.core.prIdent name="markAsReceived" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        <org.eventb.core.prIdent name="pc1" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="consentRenewalState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES">
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="consentRenewalState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬Approved=Rejected">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+        </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p20" org.eventb.core.predicate="sessions∈SESSIONS ⇸ AUTHORIZED_USERS">
             <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
             <org.eventb.core.prIdent name="SESSIONS" org.eventb.core.type="ℙ(SESSIONS)"/>
             <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
         </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="pc1⊆markAsReceived∧pc1∈dom(isConsentExpired)⇒isConsentExpired∈ℙ(PATIENTS × CONSENTS) ⇸ BOOL"/>
         <org.eventb.core.prPred name="p11" org.eventb.core.predicate="s∈dom(sessions)">
             <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
             <org.eventb.core.prIdent name="SESSIONS" org.eventb.core.type="ℙ(SESSIONS)"/>
             <org.eventb.core.prIdent name="s" org.eventb.core.type="SESSIONS"/>
             <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p27" org.eventb.core.predicate="isConsentExpired∈ℙ(PATIENTS × CONSENTS) ⇸ BOOL"/>
-        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="consentState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES">
+        <org.eventb.core.prPred name="p28" org.eventb.core.predicate="isConsentExpired∈ℙ(PATIENTS × CONSENTS) ⇸ BOOL"/>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="⊤⇒consentRenewalState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES">
             <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
-            <org.eventb.core.prIdent name="consentState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="⊤⇒consentState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES">
-            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
-            <org.eventb.core.prIdent name="consentState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
+            <org.eventb.core.prIdent name="consentRenewalState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ROLES,{LegalStaff},{LegalApprover})">
             <org.eventb.core.prIdent name="LegalApprover" org.eventb.core.type="ROLES"/>
             <org.eventb.core.prIdent name="LegalStaff" org.eventb.core.type="ROLES"/>
             <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬Void=Approve">
-            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="pc1∈dom(consentRenewalState)">
             <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
-            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="consentRenewalState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p17" org.eventb.core.predicate="⊤⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS">
             <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
             <org.eventb.core.prIdent name="SESSIONS" org.eventb.core.type="ℙ(SESSIONS)"/>
             <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬Void=Rejected">
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p16" org.eventb.core.predicate="s∈dom(sessions)⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS">
             <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
@@ -3871,12 +3880,7 @@
             <org.eventb.core.prIdent name="LegalStaff" org.eventb.core.type="ROLES"/>
             <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬Void=Reject">
-            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
-            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
-            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p25" org.eventb.core.predicate="markAsDeleted∈PATIENTS ↔ CONSENTS">
+        <org.eventb.core.prPred name="p24" org.eventb.core.predicate="markAsDeleted∈PATIENTS ↔ CONSENTS">
             <org.eventb.core.prIdent name="markAsDeleted" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p10" org.eventb.core.predicate="s∈dom(sessions)∧sessions(s)∈dom(userRoles)">
@@ -3887,50 +3891,40 @@
             <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
             <org.eventb.core.prIdent name="userRoles" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ROLES)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="STATUSES={Void,Approve,Reject}">
-            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
-            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+        <org.eventb.core.prPred name="p26" org.eventb.core.predicate="pc1⊆markAsReceived"/>
+        <org.eventb.core.prPred name="p25" org.eventb.core.predicate="markAsReceived∈PATIENTS ↔ CONSENTS"/>
+        <org.eventb.core.prPred name="p27" org.eventb.core.predicate="pc1∈dom(isConsentExpired)"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="STATUSES={Void,Approved,Rejected}">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
             <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
             <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="consentState({p ↦ c})=Approve">
-            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="pc1∈dom(consentRenewalState)∧consentRenewalState(pc1)=Approved">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
             <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
-            <org.eventb.core.prIdent name="consentState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
+            <org.eventb.core.prIdent name="consentRenewalState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p24" org.eventb.core.predicate="markAsReceived∈PATIENTS ↔ CONSENTS">
-            <org.eventb.core.prIdent name="markAsReceived" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="{p ↦ c}∈dom(consentState)∧consentState({p ↦ c})=Approve">
-            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="consentRenewalState(pc1)=Approved">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
             <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
-            <org.eventb.core.prIdent name="consentState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p26" org.eventb.core.predicate="{p ↦ c}∈dom(isConsentExpired)"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬Approve=Reject">
-            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
-            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
-            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="{p ↦ c}∈dom(consentState)">
-            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
-            <org.eventb.core.prIdent name="consentState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition(STATUSES,{Void},{Approve},{Reject})">
-            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
-            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
-            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
-            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="consentRenewalState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p3" org.eventb.core.predicate="ROLES={LegalStaff,LegalApprover}">
             <org.eventb.core.prIdent name="LegalApprover" org.eventb.core.type="ROLES"/>
             <org.eventb.core.prIdent name="LegalStaff" org.eventb.core.type="ROLES"/>
             <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="{p ↦ c}∈dom(isConsentExpired)⇒isConsentExpired∈ℙ(PATIENTS × CONSENTS) ⇸ BOOL"/>
-        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="{p ↦ c}∈dom(consentState)⇒consentState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES">
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="pc1∈dom(consentRenewalState)⇒consentRenewalState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES">
             <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
-            <org.eventb.core.prIdent name="consentState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
+            <org.eventb.core.prIdent name="consentRenewalState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="isConsentExpired∈(PATIENTS ↔ CONSENTS) ⤔ BOOL"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition(STATUSES,{Void},{Approved},{Rejected})">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p22" org.eventb.core.predicate="userRoles∈AUTHORIZED_USERS ↔ ROLES">
             <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
@@ -3948,13 +3942,17 @@
         <org.eventb.core.prPred name="p23" org.eventb.core.predicate="pc∈PATIENTS ↔ CONSENTS">
             <org.eventb.core.prIdent name="pc" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="isConsentExpired∈(PATIENTS ⇸ CONSENTS) ⤔ BOOL"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬Void=Approved">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="ErasePatientData/grd5/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="CONSENTS,PATIENTS">
         <org.eventb.core.lang name="L"/>
@@ -4433,7 +4431,7 @@
             <org.eventb.core.prAnte name="'">
                 <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3,p4"/>
                 <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p3,p4"/>
-                <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(STATUSES,{Void},{Approve},{Reject}))" org.eventb.core.prHyps="">
+                <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(STATUSES,{Void},{Approved},{Rejected}))" org.eventb.core.prHyps="">
                     <org.eventb.core.prAnte name="'">
                         <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p5" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p6,p7,p8,p9"/>
                         <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p6,p7,p8,p9"/>
@@ -4453,8 +4451,8 @@
                                                         <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p18"/>
                                                         <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p19"/>
                                                         <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
-                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p22" org.eventb.core.prHyps="p20,p21">
-                                                                <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p22" org.eventb.core.prHyps="p1"/>
+                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p21" org.eventb.core.prHyps="p20">
+                                                                <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p21" org.eventb.core.prHyps="p1"/>
                                                             </org.eventb.core.prAnte>
                                                         </org.eventb.core.prRule>
                                                     </org.eventb.core.prAnte>
@@ -4471,16 +4469,17 @@
             </org.eventb.core.prAnte>
             <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
         </org.eventb.core.prRule>
-        <org.eventb.core.prIdent name="consentState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
-        <org.eventb.core.prIdent name="markAsReceived" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        <org.eventb.core.prIdent name="consentRenewalState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
         <org.eventb.core.prIdent name="pc1" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
-        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="pc1⊆markAsReceived"/>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="STATUSES={Void,Approve,Reject}">
-            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
-            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
-            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="markAsReceived∈PATIENTS ↔ CONSENTS">
+            <org.eventb.core.prIdent name="markAsReceived" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="markAsReceived∈PATIENTS ↔ CONSENTS"/>
+        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="consentRenewalState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="consentRenewalState∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬Approved=Rejected">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p15" org.eventb.core.predicate="sessions∈SESSIONS ⇸ AUTHORIZED_USERS">
             <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
             <org.eventb.core.prIdent name="SESSIONS" org.eventb.core.type="ℙ(SESSIONS)"/>
@@ -4492,14 +4491,9 @@
             <org.eventb.core.prIdent name="s" org.eventb.core.type="SESSIONS"/>
             <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬Approve=Reject">
-            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
-            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p22" org.eventb.core.predicate="consentState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES"/>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition(STATUSES,{Void},{Approve},{Reject})">
-            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
-            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="STATUSES={Void,Approved,Rejected}">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
             <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ROLES,{LegalStaff},{LegalApprover})">
@@ -4512,20 +4506,26 @@
             <org.eventb.core.prIdent name="LegalStaff" org.eventb.core.type="ROLES"/>
             <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="pc1∈dom(consentState)"/>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬Void=Approve">
-            <org.eventb.core.prIdent name="Approve" org.eventb.core.type="STATUSES"/>
-            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
-        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="pc1∈dom(consentRenewalState)⇒consentRenewalState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES"/>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="pc1∈dom(consentRenewalState)"/>
         <org.eventb.core.prPred name="p14" org.eventb.core.predicate="⊤⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS">
             <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
             <org.eventb.core.prIdent name="SESSIONS" org.eventb.core.type="ℙ(SESSIONS)"/>
             <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
         </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition(STATUSES,{Void},{Approved},{Rejected})">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p16" org.eventb.core.predicate="userRoles∈AUTHORIZED_USERS ↔ ROLES">
             <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
             <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
             <org.eventb.core.prIdent name="userRoles" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬Void=Rejected">
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p13" org.eventb.core.predicate="s∈dom(sessions)⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS">
             <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
@@ -4533,7 +4533,6 @@
             <org.eventb.core.prIdent name="s" org.eventb.core.type="SESSIONS"/>
             <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="consentState∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES"/>
         <org.eventb.core.prPred name="p12" org.eventb.core.predicate="sessions(s)∈dom(userRoles)">
             <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
             <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
@@ -4545,17 +4544,16 @@
         <org.eventb.core.prPred name="p17" org.eventb.core.predicate="pc∈PATIENTS ↔ CONSENTS">
             <org.eventb.core.prIdent name="pc" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="pc1⊆markAsReceived∧pc1∈dom(consentState)⇒consentState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES"/>
         <org.eventb.core.prPred name="p4" org.eventb.core.predicate="¬LegalStaff=LegalApprover">
             <org.eventb.core.prIdent name="LegalApprover" org.eventb.core.type="ROLES"/>
             <org.eventb.core.prIdent name="LegalStaff" org.eventb.core.type="ROLES"/>
             <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬Void=Reject">
-            <org.eventb.core.prIdent name="Reject" org.eventb.core.type="STATUSES"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬Void=Approved">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
             <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="markAsDeleted∈PATIENTS ↔ CONSENTS">
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="markAsDeleted∈PATIENTS ↔ CONSENTS">
             <org.eventb.core.prIdent name="markAsDeleted" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p10" org.eventb.core.predicate="s∈dom(sessions)∧sessions(s)∈dom(userRoles)">
@@ -4566,10 +4564,10 @@
             <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
             <org.eventb.core.prIdent name="userRoles" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ROLES)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
     </org.eventb.core.prProof>
@@ -4943,5 +4941,443 @@
         <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES))∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="CreateConsentRequest/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0" org.eventb.core.prSets="CONSENTS,PATIENTS,STATUSES">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0"/>
+        <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        <org.eventb.core.prIdent name="c" org.eventb.core.type="CONSENTS"/>
+        <org.eventb.core.prIdent name="consentRenewalState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
+        <org.eventb.core.prIdent name="p" org.eventb.core.type="PATIENTS"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="consentRenewalState{{p ↦ c} ↦ Void}∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="ExtendConsentExpiration/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0" org.eventb.core.prSets="CONSENTS,PATIENTS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0"/>
+        <org.eventb.core.prIdent name="isConsentExpired" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×BOOL)"/>
+        <org.eventb.core.prIdent name="pc1" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="isConsentExpired{pc1 ↦ FALSE}∈(PATIENTS ↔ CONSENTS) ⤔ BOOL"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="CreateConsentRenewalRequest/grd1/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="AUTHORIZED_USERS,SESSIONS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(ROLES,{LegalStaff},{LegalApprover}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3,p4"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p3,p4"/>
+                <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(STATUSES,{Void},{Approved},{Rejected}))" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p5" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p6,p7,p8,p9"/>
+                        <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p6,p7,p8,p9"/>
+                        <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p10"/>
+                                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p11"/>
+                                <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p12"/>
+                                <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p13"/>
+                                <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p15" org.eventb.core.prHyps="p14">
+                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p15" org.eventb.core.prHyps="p1"/>
+                                    </org.eventb.core.prAnte>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                    <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="s" org.eventb.core.type="SESSIONS"/>
+        <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="markAsReceived∈PATIENTS ↔ CONSENTS">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="markAsReceived" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬Approved=Rejected">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="s∈dom(sessions)"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="STATUSES={Void,Approved,Rejected}">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="sessions∈SESSIONS ⤔ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ROLES,{LegalStaff},{LegalApprover})">
+            <org.eventb.core.prIdent name="LegalApprover" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="LegalStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="ROLES={LegalStaff,LegalApprover}">
+            <org.eventb.core.prIdent name="LegalApprover" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="LegalStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition(STATUSES,{Void},{Approved},{Rejected})">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="userRoles∈AUTHORIZED_USERS ↔ ROLES">
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+            <org.eventb.core.prIdent name="userRoles" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="s∈dom(sessions)⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬Void=Rejected">
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="pc∈PATIENTS ↔ CONSENTS">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="pc" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="¬LegalStaff=LegalApprover">
+            <org.eventb.core.prIdent name="LegalApprover" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="LegalStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬Void=Approved">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="markAsDeleted∈PATIENTS ↔ CONSENTS">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="markAsDeleted" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="CreateConsentRenewalRequest/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0" org.eventb.core.prSets="CONSENTS,PATIENTS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0"/>
+        <org.eventb.core.prIdent name="c" org.eventb.core.type="CONSENTS"/>
+        <org.eventb.core.prIdent name="isConsentExpired" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×BOOL)"/>
+        <org.eventb.core.prIdent name="p" org.eventb.core.type="PATIENTS"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="isConsentExpired{{p ↦ c} ↦ TRUE}∈(PATIENTS ↔ CONSENTS) ⤔ BOOL"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="CreateConsentRenewalRequest/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0" org.eventb.core.prSets="CONSENTS,PATIENTS,STATUSES">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0"/>
+        <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        <org.eventb.core.prIdent name="c" org.eventb.core.type="CONSENTS"/>
+        <org.eventb.core.prIdent name="consentRenewalState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
+        <org.eventb.core.prIdent name="p" org.eventb.core.type="PATIENTS"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="consentRenewalState{{p ↦ c} ↦ Void}∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="CreateConsentRenewRequest/grd1/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="AUTHORIZED_USERS,SESSIONS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(ROLES,{LegalStaff},{LegalApprover}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3,p4"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p3,p4"/>
+                <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(STATUSES,{Void},{Approved},{Rejected}))" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p5" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p6,p7,p8,p9"/>
+                        <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p6,p7,p8,p9"/>
+                        <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p10"/>
+                                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p11"/>
+                                <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p12"/>
+                                <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p13"/>
+                                <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p15" org.eventb.core.prHyps="p14">
+                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p15" org.eventb.core.prHyps="p1"/>
+                                    </org.eventb.core.prAnte>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                    <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="s" org.eventb.core.type="SESSIONS"/>
+        <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="markAsReceived∈PATIENTS ↔ CONSENTS">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="markAsReceived" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬Approved=Rejected">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="s∈dom(sessions)"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="STATUSES={Void,Approved,Rejected}">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="sessions∈SESSIONS ⤔ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ROLES,{LegalStaff},{LegalApprover})">
+            <org.eventb.core.prIdent name="LegalApprover" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="LegalStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="ROLES={LegalStaff,LegalApprover}">
+            <org.eventb.core.prIdent name="LegalApprover" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="LegalStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition(STATUSES,{Void},{Approved},{Rejected})">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="userRoles∈AUTHORIZED_USERS ↔ ROLES">
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+            <org.eventb.core.prIdent name="userRoles" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="s∈dom(sessions)⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬Void=Rejected">
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="pc∈PATIENTS ↔ CONSENTS">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="pc" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="¬LegalStaff=LegalApprover">
+            <org.eventb.core.prIdent name="LegalApprover" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="LegalStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬Void=Approved">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="markAsDeleted∈PATIENTS ↔ CONSENTS">
+            <org.eventb.core.prIdent name="CONSENTS" org.eventb.core.type="ℙ(CONSENTS)"/>
+            <org.eventb.core.prIdent name="PATIENTS" org.eventb.core.type="ℙ(PATIENTS)"/>
+            <org.eventb.core.prIdent name="markAsDeleted" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="CreateConsentRenewRequest/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0" org.eventb.core.prSets="CONSENTS,PATIENTS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0"/>
+        <org.eventb.core.prIdent name="c" org.eventb.core.type="CONSENTS"/>
+        <org.eventb.core.prIdent name="isConsentExpired" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×BOOL)"/>
+        <org.eventb.core.prIdent name="p" org.eventb.core.type="PATIENTS"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="isConsentExpired{{p ↦ c} ↦ TRUE}∈(PATIENTS ↔ CONSENTS) ⤔ BOOL"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="CreateConsentRenewRequest/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0" org.eventb.core.prSets="CONSENTS,PATIENTS,STATUSES">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0"/>
+        <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        <org.eventb.core.prIdent name="c" org.eventb.core.type="CONSENTS"/>
+        <org.eventb.core.prIdent name="consentRenewalState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
+        <org.eventb.core.prIdent name="p" org.eventb.core.type="PATIENTS"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="consentRenewalState{{p ↦ c} ↦ Void}∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="DeletePatientData/grd4/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="CONSENTS,PATIENTS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(ROLES,{LegalStaff},{LegalApprover}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3,p4"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p3,p4"/>
+                <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(STATUSES,{Void},{Approved},{Rejected}))" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p5" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p6,p7,p8,p9"/>
+                        <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p6,p7,p8,p9"/>
+                        <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p10" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p11,p12"/>
+                                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p14,p15"/>
+                                <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prHyps="">
+                                    <org.eventb.core.prAnte name="'">
+                                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="p11" org.eventb.core.prInfHyps="p17"/>
+                                        <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p18" org.eventb.core.prHyps="p14" org.eventb.core.prInfHyps="p19"/>
+                                        <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+                                            <org.eventb.core.prAnte name="'">
+                                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p20"/>
+                                                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p21"/>
+                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                                                    <org.eventb.core.prAnte name="'">
+                                                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p22"/>
+                                                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p23"/>
+                                                        <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p24"/>
+                                                        <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p25"/>
+                                                        <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p28" org.eventb.core.prHyps="p26,p27">
+                                                                <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p28" org.eventb.core.prHyps="p1"/>
+                                                            </org.eventb.core.prAnte>
+                                                        </org.eventb.core.prRule>
+                                                    </org.eventb.core.prAnte>
+                                                </org.eventb.core.prRule>
+                                            </org.eventb.core.prAnte>
+                                        </org.eventb.core.prRule>
+                                    </org.eventb.core.prAnte>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                    <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="isConsentExpired" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×BOOL)"/>
+        <org.eventb.core.prIdent name="markAsReceived" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        <org.eventb.core.prIdent name="pc1" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="consentRenewalState(pc1)=Rejected">
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="consentRenewalState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="consentRenewalState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES">
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="consentRenewalState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬Approved=Rejected">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="sessions∈SESSIONS ⇸ AUTHORIZED_USERS">
+            <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
+            <org.eventb.core.prIdent name="SESSIONS" org.eventb.core.type="ℙ(SESSIONS)"/>
+            <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="pc1⊆markAsReceived∧pc1∈dom(isConsentExpired)⇒isConsentExpired∈ℙ(PATIENTS × CONSENTS) ⇸ BOOL"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="s∈dom(sessions)">
+            <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
+            <org.eventb.core.prIdent name="SESSIONS" org.eventb.core.type="ℙ(SESSIONS)"/>
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="SESSIONS"/>
+            <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p28" org.eventb.core.predicate="isConsentExpired∈ℙ(PATIENTS × CONSENTS) ⇸ BOOL"/>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="⊤⇒consentRenewalState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES">
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="consentRenewalState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ROLES,{LegalStaff},{LegalApprover})">
+            <org.eventb.core.prIdent name="LegalApprover" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="LegalStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="pc1∈dom(consentRenewalState)">
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="consentRenewalState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="⊤⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS">
+            <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
+            <org.eventb.core.prIdent name="SESSIONS" org.eventb.core.type="ℙ(SESSIONS)"/>
+            <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬Void=Rejected">
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="s∈dom(sessions)⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS">
+            <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
+            <org.eventb.core.prIdent name="SESSIONS" org.eventb.core.type="ℙ(SESSIONS)"/>
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="SESSIONS"/>
+            <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="¬LegalStaff=LegalApprover">
+            <org.eventb.core.prIdent name="LegalApprover" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="LegalStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p24" org.eventb.core.predicate="markAsDeleted∈PATIENTS ↔ CONSENTS">
+            <org.eventb.core.prIdent name="markAsDeleted" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="s∈dom(sessions)∧sessions(s)∈dom(userRoles)">
+            <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+            <org.eventb.core.prIdent name="SESSIONS" org.eventb.core.type="ℙ(SESSIONS)"/>
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="SESSIONS"/>
+            <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
+            <org.eventb.core.prIdent name="userRoles" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p26" org.eventb.core.predicate="pc1⊆markAsReceived"/>
+        <org.eventb.core.prPred name="p25" org.eventb.core.predicate="markAsReceived∈PATIENTS ↔ CONSENTS"/>
+        <org.eventb.core.prPred name="p27" org.eventb.core.predicate="pc1∈dom(isConsentExpired)"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="STATUSES={Void,Approved,Rejected}">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="pc1∈dom(consentRenewalState)∧consentRenewalState(pc1)=Rejected">
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="consentRenewalState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="ROLES={LegalStaff,LegalApprover}">
+            <org.eventb.core.prIdent name="LegalApprover" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="LegalStaff" org.eventb.core.type="ROLES"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="pc1∈dom(consentRenewalState)⇒consentRenewalState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES">
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="consentRenewalState" org.eventb.core.type="ℙ(ℙ(PATIENTS×CONSENTS)×STATUSES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="isConsentExpired∈(PATIENTS ↔ CONSENTS) ⤔ BOOL"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition(STATUSES,{Void},{Approved},{Rejected})">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="Rejected" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p22" org.eventb.core.predicate="userRoles∈AUTHORIZED_USERS ↔ ROLES">
+            <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+            <org.eventb.core.prIdent name="userRoles" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="sessions(s)∈dom(userRoles)">
+            <org.eventb.core.prIdent name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
+            <org.eventb.core.prIdent name="ROLES" org.eventb.core.type="ℙ(ROLES)"/>
+            <org.eventb.core.prIdent name="SESSIONS" org.eventb.core.type="ℙ(SESSIONS)"/>
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="SESSIONS"/>
+            <org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
+            <org.eventb.core.prIdent name="userRoles" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ROLES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p23" org.eventb.core.predicate="pc∈PATIENTS ↔ CONSENTS">
+            <org.eventb.core.prIdent name="pc" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬Void=Approved">
+            <org.eventb.core.prIdent name="Approved" org.eventb.core.type="STATUSES"/>
+            <org.eventb.core.prIdent name="STATUSES" org.eventb.core.type="ℙ(STATUSES)"/>
+            <org.eventb.core.prIdent name="Void" org.eventb.core.type="STATUSES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
     </org.eventb.core.prProof>
 </org.eventb.core.prFile>

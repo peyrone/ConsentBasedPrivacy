@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="61">
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
     <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0">
         <org.eventb.core.poIdentifier name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
         <org.eventb.core.poIdentifier name="AUTHORIZED_USERS" org.eventb.core.type="ℙ(AUTHORIZED_USERS)"/>
@@ -30,7 +30,7 @@
         <org.eventb.core.poPredicate name="AUTHORIZED_USERY" org.eventb.core.predicate="(∅ ⦂ ℙ(AUTHORIZED_USERS×ℙ(PATIENTS×FIELDS)))∈AUTHORIZED_USERS ⇸ (PATIENTS ↔ FIELDS)" org.eventb.core.source="/ConsentBasedPrivacy/RPCX.buc|org.eventb.core.contextFile#RPCX|org.eventb.core.axiom#B"/>
         <org.eventb.core.poPredicate name="AUTHORIZED_USERZ" org.eventb.core.predicate="(∅ ⦂ ℙ(AUTHORIZED_USERS×ℙ(PATIENTS×CONSENTS)))∈AUTHORIZED_USERS ⇸ (PATIENTS ↔ CONSENTS)" org.eventb.core.source="/ConsentBasedPrivacy/RPCX.buc|org.eventb.core.contextFile#RPCX|org.eventb.core.axiom#C"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="54">
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
         <org.eventb.core.poIdentifier name="queries" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(QUERIES×PATIENTS))"/>
         <org.eventb.core.poIdentifier name="authorizedConsent" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(PATIENTS×CONSENTS))"/>
         <org.eventb.core.poIdentifier name="crf" org.eventb.core.type="ℙ(CONSENTS×ℙ(ROLES×FIELDS))"/>
@@ -40,7 +40,7 @@
         <org.eventb.core.poIdentifier name="pf" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(PATIENTS×FIELDS))"/>
         <org.eventb.core.poIdentifier name="patients" org.eventb.core.type="ℙ(PATIENTS)"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poSequent name="INITIALISATION/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="55">
+    <org.eventb.core.poSequent name="INITIALISATION/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsenu"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="(∅ ⦂ ℙ(SESSIONS×AUTHORIZED_USERS))∈SESSIONS ⤔ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.invariant#2"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#'"/>
@@ -48,7 +48,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poSequent#INITIALISATION\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="55">
+    <org.eventb.core.poSequent name="INITIALISATION/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsenu">
             <org.eventb.core.poPredicate name="'" org.eventb.core.predicate="crf'∈CONSENTS → ℙ1(ROLES × FIELDS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#'|org.eventb.core.action#+"/>
         </org.eventb.core.poPredicateSet>
@@ -58,7 +58,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poSequent#INITIALISATION\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/inv6/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="55">
+    <org.eventb.core.poSequent name="INITIALISATION/inv6/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsenu"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="(∅ ⦂ ℙ(AUTHORIZED_USERS×ℙ(QUERIES×PATIENTS)))∈AUTHORIZED_USERS ⇸ (QUERIES ↔ PATIENTS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.invariant#@"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#'"/>
@@ -66,7 +66,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poSequent#INITIALISATION\/inv6\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD5"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/inv7/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="55">
+    <org.eventb.core.poSequent name="INITIALISATION/inv7/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsenu"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="(∅ ⦂ ℙ(AUTHORIZED_USERS×ℙ(PATIENTS×FIELDS)))∈AUTHORIZED_USERS ⇸ (PATIENTS ↔ FIELDS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.invariant#A"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#'"/>
@@ -74,21 +74,21 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poSequent#INITIALISATION\/inv7\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD6"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/inv9/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="55">
+    <org.eventb.core.poSequent name="INITIALISATION/inv8/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsenu"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="(∅ ⦂ ℙ(AUTHORIZED_USERS×ℙ(PATIENTS×CONSENTS)))∈AUTHORIZED_USERS ⇸ (PATIENTS ↔ CONSENTS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.invariant#C"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#'"/>
         <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.invariant#C"/>
-        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poSequent#INITIALISATION\/inv9\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poSequent#INITIALISATION\/inv8\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD7"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/act3/FIS" org.eventb.core.accurate="true" org.eventb.core.poDesc="Feasibility of action" org.eventb.core.poStamp="55">
+    <org.eventb.core.poSequent name="INITIALISATION/act3/FIS" org.eventb.core.accurate="true" org.eventb.core.poDesc="Feasibility of action" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsenu"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="AUTHORIZED_USERS  ROLES≠(∅ ⦂ ℙ(ℙ(AUTHORIZED_USERS×ROLES)))" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#'|org.eventb.core.action#)"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#'|org.eventb.core.action#)"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsenu"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/act5/FIS" org.eventb.core.accurate="true" org.eventb.core.poDesc="Feasibility of action" org.eventb.core.poStamp="55">
+    <org.eventb.core.poSequent name="INITIALISATION/act5/FIS" org.eventb.core.accurate="true" org.eventb.core.poDesc="Feasibility of action" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsenu"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="CONSENTS → ℙ1(ROLES × FIELDS)≠(∅ ⦂ ℙ(ℙ(CONSENTS×ℙ(ROLES×FIELDS))))" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#'|org.eventb.core.action#+"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#'|org.eventb.core.action#+"/>
@@ -105,7 +105,7 @@
         <org.eventb.core.poIdentifier name="queries'" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(QUERIES×PATIENTS))"/>
     </org.eventb.core.poPredicateSet>
     <org.eventb.core.poPredicateSet name="EVTALLHYPauthorizedConsenu" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTIDENTauthorizedConsenu" org.eventb.core.poStamp="0"/>
-    <org.eventb.core.poSequent name="Login/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="54">
+    <org.eventb.core.poSequent name="Login/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsenv"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="sessions∪{s ↦ u}∈SESSIONS ⤔ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.invariant#2"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#;"/>
@@ -123,13 +123,13 @@
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="u∈AUTHORIZED_USERS∧u∉ran(sessions)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#;|org.eventb.core.guard#*"/>
         <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="sessions∪{s ↦ u}∈SESSIONS ⤔ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#;|org.eventb.core.guard#+"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poSequent name="AddPatient/grd1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="54">
+    <org.eventb.core.poSequent name="AddPatient/grd1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTIDENTauthorizedConsenw"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#=|org.eventb.core.guard#)"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#=|org.eventb.core.guard#)"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTIDENTauthorizedConsenw"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="AddPatient/grd4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="54">
+    <org.eventb.core.poSequent name="AddPatient/grd4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsenw)"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#=|org.eventb.core.guard#-"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#=|org.eventb.core.guard#-"/>
@@ -148,17 +148,17 @@
     <org.eventb.core.poPredicateSet name="EVTALLHYPauthorizedConsenw" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsenw)" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="sessions(s)∉dom(queries)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#=|org.eventb.core.guard#-"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poSequent name="AddConsent/grd1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="54">
+    <org.eventb.core.poSequent name="AddConsent/grd1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTIDENTauthorizedConsenx"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#&gt;|org.eventb.core.guard#*"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#&gt;|org.eventb.core.guard#*"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTIDENTauthorizedConsenx"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="AddConsent/grd5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="54">
-        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsenx*"/>
-        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#&gt;|org.eventb.core.guard#0"/>
-        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#&gt;|org.eventb.core.guard#0"/>
-        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsenx*"/>
+    <org.eventb.core.poSequent name="AddConsent/grd6/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsenx+"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#&gt;|org.eventb.core.guard#1"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#&gt;|org.eventb.core.guard#1"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsenx+"/>
     </org.eventb.core.poSequent>
     <org.eventb.core.poPredicateSet name="EVTIDENTauthorizedConsenx" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
         <org.eventb.core.poIdentifier name="pc'" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
@@ -166,34 +166,35 @@
         <org.eventb.core.poIdentifier name="s" org.eventb.core.type="SESSIONS"/>
         <org.eventb.core.poIdentifier name="p" org.eventb.core.type="PATIENTS"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTHYPauthorizedConsenx*" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTIDENTauthorizedConsenx" org.eventb.core.poStamp="0">
+    <org.eventb.core.poPredicateSet name="EVTHYPauthorizedConsenx+" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTIDENTauthorizedConsenx" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="s∈dom(sessions)∧sessions(s)∈dom(userRoles)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#&gt;|org.eventb.core.guard#*"/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="∃r⦂ROLES·r∈userRoles[sessions[{s}]]∧r=NursingStaff" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#&gt;|org.eventb.core.guard#+"/>
-        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="p∈patients∧c∈dom(crf)∧p ↦ c∉pc" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#&gt;|org.eventb.core.guard#,"/>
-        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="pc∪{p ↦ c}∈PATIENTS ↔ CONSENTS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#&gt;|org.eventb.core.guard#\/"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="p∈patients∧c∈dom(crf)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#&gt;|org.eventb.core.guard#,"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="p ↦ c∉pc" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#&gt;|org.eventb.core.guard#\/"/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="pc∪{p ↦ c}∈PATIENTS ↔ CONSENTS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#&gt;|org.eventb.core.guard#0"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPauthorizedConsenx" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsenx*" org.eventb.core.poStamp="0">
-        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="sessions(s)∉dom(queries)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#&gt;|org.eventb.core.guard#0"/>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPauthorizedConsenx" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsenx+" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="sessions(s)∉dom(queries)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#&gt;|org.eventb.core.guard#1"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poSequent name="CreateInquiry/grd1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="54">
+    <org.eventb.core.poSequent name="CreateInquiry/grd1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTIDENTauthorizedConseny"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#D|org.eventb.core.guard#*"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#D|org.eventb.core.guard#*"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTIDENTauthorizedConseny"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="CreateInquiry/grd2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="54">
+    <org.eventb.core.poSequent name="CreateInquiry/grd2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConseny'"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="q∈QUERIES∧p∈dom(pc)⇒s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#D|org.eventb.core.guard#+"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#D|org.eventb.core.guard#+"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConseny'"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="CreateInquiry/grd3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="54">
+    <org.eventb.core.poSequent name="CreateInquiry/grd3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConseny("/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#D|org.eventb.core.guard#0"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#D|org.eventb.core.guard#0"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConseny("/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="CreateInquiry/inv6/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="54">
+    <org.eventb.core.poSequent name="CreateInquiry/inv6/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConseny"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="queries{sessions(s) ↦ {q ↦ p}}∈AUTHORIZED_USERS ⇸ (QUERIES ↔ PATIENTS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.invariant#@"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#D"/>
@@ -201,7 +202,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poSequent#CreateInquiry\/inv6\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD5"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="CreateInquiry/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="54">
+    <org.eventb.core.poSequent name="CreateInquiry/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConseny"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#D|org.eventb.core.action#\/"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#D|org.eventb.core.action#\/"/>
@@ -222,96 +223,96 @@
     <org.eventb.core.poPredicateSet name="EVTALLHYPauthorizedConseny" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConseny(" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="queries{sessions(s) ↦ {q ↦ p}}∈AUTHORIZED_USERS ⇸ (QUERIES ↔ PATIENTS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#D|org.eventb.core.guard#0"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poSequent name="CheckAuthorizeConsent/grd1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="57">
+    <org.eventb.core.poSequent name="CheckAuthorizeConsent/grd1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTIDENTauthorizedConsenz"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#F|org.eventb.core.guard#*"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#F|org.eventb.core.guard#*"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTIDENTauthorizedConsenz"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="CheckAuthorizeConsent/grd4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="57">
+    <org.eventb.core.poSequent name="CheckAuthorizeConsent/grd4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsenz)"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀r⦂ROLES·r∈userRoles[sessions[{s}]]⇒c∈dom(crf)∧crf∈CONSENTS ⇸ ℙ(ROLES × FIELDS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#F|org.eventb.core.guard#."/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#F|org.eventb.core.guard#."/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsenz)"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="CheckAuthorizeConsent/grd5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="57">
+    <org.eventb.core.poSequent name="CheckAuthorizeConsent/grd5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsenz*"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#F|org.eventb.core.guard#3"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#F|org.eventb.core.guard#3"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsenz*"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="CheckAuthorizeConsent/grd6/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="57">
+    <org.eventb.core.poSequent name="CheckAuthorizeConsent/grd6/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsenz+"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#F|org.eventb.core.guard#4"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#F|org.eventb.core.guard#4"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsenz+"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="CheckAuthorizeConsent/inv9/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="57">
+    <org.eventb.core.poSequent name="CheckAuthorizeConsent/inv8/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsenz"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="authorizedConsent{sessions(s) ↦ {p ↦ c}}∈AUTHORIZED_USERS ⇸ (PATIENTS ↔ CONSENTS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.invariant#C"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#F"/>
         <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.invariant#C"/>
-        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poSequent#CheckAuthorizeConsent\/inv9\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poSequent#CheckAuthorizeConsent\/inv8\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD7"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="CheckAuthorizeConsent/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="57">
+    <org.eventb.core.poSequent name="CheckAuthorizeConsent/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsenz"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#F|org.eventb.core.action#0"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#F|org.eventb.core.action#0"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsenz"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poPredicateSet name="EVTIDENTauthorizedConsenz" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="57">
+    <org.eventb.core.poPredicateSet name="EVTIDENTauthorizedConsenz" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
         <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CONSENTS"/>
         <org.eventb.core.poIdentifier name="authorizedConsent'" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(PATIENTS×CONSENTS))"/>
         <org.eventb.core.poIdentifier name="s" org.eventb.core.type="SESSIONS"/>
         <org.eventb.core.poIdentifier name="p" org.eventb.core.type="PATIENTS"/>
         <org.eventb.core.poIdentifier name="consentExpired" org.eventb.core.type="BOOL"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTHYPauthorizedConsenz)" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTIDENTauthorizedConsenz" org.eventb.core.poStamp="57">
+    <org.eventb.core.poPredicateSet name="EVTHYPauthorizedConsenz)" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTIDENTauthorizedConsenz" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="s∈dom(sessions)∧sessions(s)∈dom(queries)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#F|org.eventb.core.guard#*"/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="consentExpired∈BOOL∧consentExpired=FALSE" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#F|org.eventb.core.guard#,"/>
         <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="c∈pc[{p}]∧c∈dom(crf)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#F|org.eventb.core.guard#-"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTHYPauthorizedConsenz*" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsenz)" org.eventb.core.poStamp="57">
+    <org.eventb.core.poPredicateSet name="EVTHYPauthorizedConsenz*" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsenz)" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="∃r⦂ROLES·r∈userRoles[sessions[{s}]]∧r∈dom(crf(c))" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#F|org.eventb.core.guard#."/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTHYPauthorizedConsenz+" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsenz*" org.eventb.core.poStamp="57">
+    <org.eventb.core.poPredicateSet name="EVTHYPauthorizedConsenz+" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsenz*" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="sessions(s)∉dom(authorizedConsent)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#F|org.eventb.core.guard#3"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPauthorizedConsenz" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsenz+" org.eventb.core.poStamp="57">
+    <org.eventb.core.poPredicateSet name="EVTALLHYPauthorizedConsenz" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsenz+" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="authorizedConsent{sessions(s) ↦ {p ↦ c}}∈AUTHORIZED_USERS ⇸ (PATIENTS ↔ CONSENTS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#F|org.eventb.core.guard#4"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poSequent name="ExecuteQuery/grd1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="59">
+    <org.eventb.core.poSequent name="ExecuteQuery/grd1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTIDENTauthorizedConsen{"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)⇒sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#G|org.eventb.core.guard#*"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#G|org.eventb.core.guard#*"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTIDENTauthorizedConsen{"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="ExecuteQuery/grd2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="59">
+    <org.eventb.core.poSequent name="ExecuteQuery/grd2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen{'"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS∧sessions(s)∈dom(queries)∧queries∈AUTHORIZED_USERS ⇸ ℙ(QUERIES × PATIENTS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#G|org.eventb.core.guard#+"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#G|org.eventb.core.guard#+"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen{'"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="ExecuteQuery/grd3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="59">
+    <org.eventb.core.poSequent name="ExecuteQuery/grd3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen{("/>
-        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS∧sessions(s)∈dom(authorizedConsent)∧authorizedConsent∈AUTHORIZED_USERS ⇸ ℙ(PATIENTS × CONSENTS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#G|org.eventb.core.guard#."/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS∧(sessions(s)∈dom(authorizedConsent)⇒authorizedConsent∈AUTHORIZED_USERS ⇸ ℙ(PATIENTS × CONSENTS))" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#G|org.eventb.core.guard#."/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#G|org.eventb.core.guard#."/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen{("/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="ExecuteQuery/grd4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="59">
+    <org.eventb.core.poSequent name="ExecuteQuery/grd4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen{)"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#G|org.eventb.core.guard#\/"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#G|org.eventb.core.guard#\/"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen{)"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="ExecuteQuery/grd5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="59">
+    <org.eventb.core.poSequent name="ExecuteQuery/grd5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen{*"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS∧c∈dom(crf)∧crf∈CONSENTS ⇸ ℙ(ROLES × FIELDS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#G|org.eventb.core.guard#3"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#G|org.eventb.core.guard#3"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen{*"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="ExecuteQuery/inv7/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="59">
+    <org.eventb.core.poSequent name="ExecuteQuery/inv7/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsen{"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="pf{sessions(s) ↦ {p} × ran(userRoles[sessions[{s}]] ◁ crf(c))}∈AUTHORIZED_USERS ⇸ (PATIENTS ↔ FIELDS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.invariant#A"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#G"/>
@@ -319,7 +320,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poSequent#ExecuteQuery\/inv7\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD6"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="ExecuteQuery/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="59">
+    <org.eventb.core.poSequent name="ExecuteQuery/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsen{"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS∧c∈dom(crf)∧crf∈CONSENTS ⇸ ℙ(ROLES × FIELDS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#G|org.eventb.core.action#0"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#G|org.eventb.core.action#0"/>
@@ -331,46 +332,46 @@
         <org.eventb.core.poIdentifier name="s" org.eventb.core.type="SESSIONS"/>
         <org.eventb.core.poIdentifier name="p" org.eventb.core.type="PATIENTS"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTHYPauthorizedConsen{'" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTIDENTauthorizedConsen{" org.eventb.core.poStamp="58">
-        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="s∈dom(sessions)∧sessions(s)∈dom(queries)∧sessions(s)∈dom(authorizedConsent)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#G|org.eventb.core.guard#*"/>
+    <org.eventb.core.poPredicateSet name="EVTHYPauthorizedConsen{'" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTIDENTauthorizedConsen{" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="s∈dom(sessions)∧sessions(s)∈dom(queries)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#G|org.eventb.core.guard#*"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTHYPauthorizedConsen{(" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen{'" org.eventb.core.poStamp="58">
+    <org.eventb.core.poPredicateSet name="EVTHYPauthorizedConsen{(" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen{'" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="p∈ran(queries(sessions(s)))∧c∈dom(crf)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#G|org.eventb.core.guard#+"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTHYPauthorizedConsen{)" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen{(" org.eventb.core.poStamp="59">
-        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="p ↦ c∈authorizedConsent(sessions(s))" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#G|org.eventb.core.guard#."/>
+    <org.eventb.core.poPredicateSet name="EVTHYPauthorizedConsen{)" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen{(" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="sessions(s)∈dom(authorizedConsent)∧p ↦ c∈authorizedConsent(sessions(s))" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#G|org.eventb.core.guard#."/>
     </org.eventb.core.poPredicateSet>
     <org.eventb.core.poPredicateSet name="EVTHYPauthorizedConsen{*" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen{)" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="sessions(s)∉dom(pf)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#G|org.eventb.core.guard#\/"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPauthorizedConsen{" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen{*" org.eventb.core.poStamp="59">
+    <org.eventb.core.poPredicateSet name="EVTALLHYPauthorizedConsen{" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen{*" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="pf{sessions(s) ↦ {p} × ran(userRoles[sessions[{s}]] ◁ crf(c))}∈AUTHORIZED_USERS ⇸ (PATIENTS ↔ FIELDS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#G|org.eventb.core.guard#3"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poSequent name="Logout/grd2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="61">
+    <org.eventb.core.poSequent name="Logout/grd2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen\|'"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#H|org.eventb.core.guard#0"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#H|org.eventb.core.guard#0"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen\|'"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="Logout/grd3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="61">
+    <org.eventb.core.poSequent name="Logout/grd3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen\|("/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#H|org.eventb.core.guard#2"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#H|org.eventb.core.guard#2"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen\|("/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="Logout/grd4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="61">
+    <org.eventb.core.poSequent name="Logout/grd4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen\|)"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#H|org.eventb.core.guard#3"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#H|org.eventb.core.guard#3"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen\|)"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="Logout/grd5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="61">
+    <org.eventb.core.poSequent name="Logout/grd5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen\|*"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#H|org.eventb.core.guard#6"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#H|org.eventb.core.guard#6"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen\|*"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="Logout/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="61">
+    <org.eventb.core.poSequent name="Logout/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsen\|"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="sessions ⩥ {sessions(s)}∈SESSIONS ⤔ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.invariant#2"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#H"/>
@@ -378,7 +379,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poSequent#Logout\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="Logout/inv6/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="61">
+    <org.eventb.core.poSequent name="Logout/inv6/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsen\|"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="{sessions(s)} ⩤ queries∈AUTHORIZED_USERS ⇸ (QUERIES ↔ PATIENTS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.invariant#@"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#H"/>
@@ -386,7 +387,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poSequent#Logout\/inv6\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD5"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="Logout/inv7/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="61">
+    <org.eventb.core.poSequent name="Logout/inv7/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsen\|"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="{sessions(s)} ⩤ pf∈AUTHORIZED_USERS ⇸ (PATIENTS ↔ FIELDS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.invariant#A"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#H"/>
@@ -394,65 +395,65 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poSequent#Logout\/inv7\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD6"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="Logout/inv9/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="61">
+    <org.eventb.core.poSequent name="Logout/inv8/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsen\|"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="{sessions(s)} ⩤ authorizedConsent∈AUTHORIZED_USERS ⇸ (PATIENTS ↔ CONSENTS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.invariant#C"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#H"/>
         <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.invariant#C"/>
-        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poSequent#Logout\/inv9\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poSequent#Logout\/inv8\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD7"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="Logout/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="61">
+    <org.eventb.core.poSequent name="Logout/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsen\|"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#H|org.eventb.core.action#\/"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#H|org.eventb.core.action#\/"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsen\|"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="Logout/act2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="61">
+    <org.eventb.core.poSequent name="Logout/act2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsen\|"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#H|org.eventb.core.action#1"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#H|org.eventb.core.action#1"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsen\|"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="Logout/act3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="61">
+    <org.eventb.core.poSequent name="Logout/act3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsen\|"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#H|org.eventb.core.action#4"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#H|org.eventb.core.action#4"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsen\|"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="Logout/act4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="61">
+    <org.eventb.core.poSequent name="Logout/act4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsen\|"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="s∈dom(sessions)∧sessions∈SESSIONS ⇸ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#H|org.eventb.core.action#5"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#H|org.eventb.core.action#5"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTALLHYPauthorizedConsen\|"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poPredicateSet name="EVTIDENTauthorizedConsen|" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="61">
+    <org.eventb.core.poPredicateSet name="EVTIDENTauthorizedConsen|" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
         <org.eventb.core.poIdentifier name="sessions'" org.eventb.core.type="ℙ(SESSIONS×AUTHORIZED_USERS)"/>
         <org.eventb.core.poIdentifier name="authorizedConsent'" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(PATIENTS×CONSENTS))"/>
         <org.eventb.core.poIdentifier name="pf'" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(PATIENTS×FIELDS))"/>
         <org.eventb.core.poIdentifier name="s" org.eventb.core.type="SESSIONS"/>
         <org.eventb.core.poIdentifier name="queries'" org.eventb.core.type="ℙ(AUTHORIZED_USERS×ℙ(QUERIES×PATIENTS))"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTHYPauthorizedConsen|'" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTIDENTauthorizedConsen\|" org.eventb.core.poStamp="61">
+    <org.eventb.core.poPredicateSet name="EVTHYPauthorizedConsen|'" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTIDENTauthorizedConsen\|" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="s∈dom(sessions)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#H|org.eventb.core.guard#)"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTHYPauthorizedConsen|(" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen\|'" org.eventb.core.poStamp="61">
+    <org.eventb.core.poPredicateSet name="EVTHYPauthorizedConsen|(" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen\|'" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="{sessions(s)} ⩤ queries∈AUTHORIZED_USERS ⇸ (QUERIES ↔ PATIENTS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#H|org.eventb.core.guard#0"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTHYPauthorizedConsen|)" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen\|(" org.eventb.core.poStamp="61">
+    <org.eventb.core.poPredicateSet name="EVTHYPauthorizedConsen|)" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen\|(" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="{sessions(s)} ⩤ authorizedConsent∈AUTHORIZED_USERS ⇸ (PATIENTS ↔ CONSENTS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#H|org.eventb.core.guard#2"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTHYPauthorizedConsen|*" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen\|)" org.eventb.core.poStamp="61">
+    <org.eventb.core.poPredicateSet name="EVTHYPauthorizedConsen|*" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen\|)" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="{sessions(s)} ⩤ pf∈AUTHORIZED_USERS ⇸ (PATIENTS ↔ FIELDS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#H|org.eventb.core.guard#3"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPauthorizedConsen|" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen\|*" org.eventb.core.poStamp="61">
+    <org.eventb.core.poPredicateSet name="EVTALLHYPauthorizedConsen|" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#EVTHYPauthorizedConsen\|*" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="sessions ⩥ {sessions(s)}∈SESSIONS ⤔ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.event#H|org.eventb.core.guard#6"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="54">
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/RPSM.bpo|org.eventb.core.poFile#RPSM|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="sessions∈SESSIONS ⤔ AUTHORIZED_USERS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.invariant#2"/>
-        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="patients∈ℙ(PATIENTS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.invariant#3"/>
-        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="userRoles∈AUTHORIZED_USERS ↔ ROLES" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.invariant#4"/>
-        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="pc∈PATIENTS ↔ CONSENTS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.invariant#5"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="userRoles∈AUTHORIZED_USERS ↔ ROLES" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.invariant#3"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="pc∈PATIENTS ↔ CONSENTS" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.invariant#4"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="patients∈ℙ(PATIENTS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.invariant#5"/>
         <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="crf∈CONSENTS ⇸ (ROLES ↔ FIELDS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.invariant#?"/>
         <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="queries∈AUTHORIZED_USERS ⇸ (QUERIES ↔ PATIENTS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.invariant#@"/>
         <org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="pf∈AUTHORIZED_USERS ⇸ (PATIENTS ↔ FIELDS)" org.eventb.core.source="/ConsentBasedPrivacy/RPSM.bum|org.eventb.core.machineFile#RPSM|org.eventb.core.invariant#A"/>

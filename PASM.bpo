@@ -108,11 +108,11 @@
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/PASM.bum|org.eventb.core.machineFile#PASM|org.eventb.core.event#3|org.eventb.core.guard#+"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#EVTIDENTportableStati"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="ApprovePortable/grd4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
-        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#EVTHYPportableStati)"/>
-        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="pc1∈dom(portableState)∧portableState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES" org.eventb.core.source="/ConsentBasedPrivacy/PASM.bum|org.eventb.core.machineFile#PASM|org.eventb.core.event#3|org.eventb.core.guard#."/>
-        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/PASM.bum|org.eventb.core.machineFile#PASM|org.eventb.core.event#3|org.eventb.core.guard#."/>
-        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#EVTHYPportableStati)"/>
+    <org.eventb.core.poSequent name="ApprovePortable/grd3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#EVTHYPportableStati("/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="pc1∈dom(portableState)⇒portableState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES" org.eventb.core.source="/ConsentBasedPrivacy/PASM.bum|org.eventb.core.machineFile#PASM|org.eventb.core.event#3|org.eventb.core.guard#-"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/PASM.bum|org.eventb.core.machineFile#PASM|org.eventb.core.event#3|org.eventb.core.guard#-"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#EVTHYPportableStati("/>
     </org.eventb.core.poSequent>
     <org.eventb.core.poSequent name="ApprovePortable/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#EVTALLHYPportableStati"/>
@@ -128,13 +128,13 @@
         <org.eventb.core.poIdentifier name="pc1" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
         <org.eventb.core.poIdentifier name="s" org.eventb.core.type="SESSIONS"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTHYPportableStati)" org.eventb.core.parentSet="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#EVTIDENTportableStati" org.eventb.core.poStamp="0">
+    <org.eventb.core.poPredicateSet name="EVTHYPportableStati(" org.eventb.core.parentSet="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#EVTIDENTportableStati" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="s∈dom(sessions)∧sessions(s)∈dom(userRoles)" org.eventb.core.source="/ConsentBasedPrivacy/PASM.bum|org.eventb.core.machineFile#PASM|org.eventb.core.event#3|org.eventb.core.guard#+"/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="∃r⦂ROLES·r∈userRoles[sessions[{s}]]∧r=LegalApprover" org.eventb.core.source="/ConsentBasedPrivacy/PASM.bum|org.eventb.core.machineFile#PASM|org.eventb.core.event#3|org.eventb.core.guard#,"/>
-        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="pc1∈dom(portableState)" org.eventb.core.source="/ConsentBasedPrivacy/PASM.bum|org.eventb.core.machineFile#PASM|org.eventb.core.event#3|org.eventb.core.guard#-"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPportableStati" org.eventb.core.parentSet="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#EVTHYPportableStati)" org.eventb.core.poStamp="0">
-        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="portableState(pc1)=Void∧portableState{pc1 ↦ Approved}∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES" org.eventb.core.source="/ConsentBasedPrivacy/PASM.bum|org.eventb.core.machineFile#PASM|org.eventb.core.event#3|org.eventb.core.guard#."/>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPportableStati" org.eventb.core.parentSet="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#EVTHYPportableStati(" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="pc1∈dom(portableState)∧portableState(pc1)=Void" org.eventb.core.source="/ConsentBasedPrivacy/PASM.bum|org.eventb.core.machineFile#PASM|org.eventb.core.event#3|org.eventb.core.guard#-"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="portableState{pc1 ↦ Approved}∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES" org.eventb.core.source="/ConsentBasedPrivacy/PASM.bum|org.eventb.core.machineFile#PASM|org.eventb.core.event#3|org.eventb.core.guard#."/>
         <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="canPortable∈BOOL∧canPortable=TRUE" org.eventb.core.source="/ConsentBasedPrivacy/PASM.bum|org.eventb.core.machineFile#PASM|org.eventb.core.event#3|org.eventb.core.guard#\/"/>
     </org.eventb.core.poPredicateSet>
     <org.eventb.core.poSequent name="RejectPortable/grd1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
@@ -143,11 +143,11 @@
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/PASM.bum|org.eventb.core.machineFile#PASM|org.eventb.core.event#4|org.eventb.core.guard#+"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#EVTIDENTportableStatj"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="RejectPortable/grd4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
-        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#EVTHYPportableStatj)"/>
-        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="pc1∈dom(portableState)∧portableState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES" org.eventb.core.source="/ConsentBasedPrivacy/PASM.bum|org.eventb.core.machineFile#PASM|org.eventb.core.event#4|org.eventb.core.guard#."/>
-        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/PASM.bum|org.eventb.core.machineFile#PASM|org.eventb.core.event#4|org.eventb.core.guard#."/>
-        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#EVTHYPportableStatj)"/>
+    <org.eventb.core.poSequent name="RejectPortable/grd3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#EVTHYPportableStatj("/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="pc1∈dom(portableState)⇒portableState∈ℙ(PATIENTS × CONSENTS) ⇸ STATUSES" org.eventb.core.source="/ConsentBasedPrivacy/PASM.bum|org.eventb.core.machineFile#PASM|org.eventb.core.event#4|org.eventb.core.guard#-"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ConsentBasedPrivacy/PASM.bum|org.eventb.core.machineFile#PASM|org.eventb.core.event#4|org.eventb.core.guard#-"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#EVTHYPportableStatj("/>
     </org.eventb.core.poSequent>
     <org.eventb.core.poSequent name="RejectPortable/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#EVTALLHYPportableStatj"/>
@@ -163,13 +163,13 @@
         <org.eventb.core.poIdentifier name="pc1" org.eventb.core.type="ℙ(PATIENTS×CONSENTS)"/>
         <org.eventb.core.poIdentifier name="s" org.eventb.core.type="SESSIONS"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTHYPportableStatj)" org.eventb.core.parentSet="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#EVTIDENTportableStatj" org.eventb.core.poStamp="0">
+    <org.eventb.core.poPredicateSet name="EVTHYPportableStatj(" org.eventb.core.parentSet="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#EVTIDENTportableStatj" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="s∈dom(sessions)∧sessions(s)∈dom(userRoles)" org.eventb.core.source="/ConsentBasedPrivacy/PASM.bum|org.eventb.core.machineFile#PASM|org.eventb.core.event#4|org.eventb.core.guard#+"/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="∃r⦂ROLES·r∈userRoles[sessions[{s}]]∧r=LegalApprover" org.eventb.core.source="/ConsentBasedPrivacy/PASM.bum|org.eventb.core.machineFile#PASM|org.eventb.core.event#4|org.eventb.core.guard#,"/>
-        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="pc1∈dom(portableState)" org.eventb.core.source="/ConsentBasedPrivacy/PASM.bum|org.eventb.core.machineFile#PASM|org.eventb.core.event#4|org.eventb.core.guard#-"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPportableStatj" org.eventb.core.parentSet="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#EVTHYPportableStatj)" org.eventb.core.poStamp="0">
-        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="portableState(pc1)=Void∧portableState{pc1 ↦ Rejected}∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES" org.eventb.core.source="/ConsentBasedPrivacy/PASM.bum|org.eventb.core.machineFile#PASM|org.eventb.core.event#4|org.eventb.core.guard#."/>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPportableStatj" org.eventb.core.parentSet="/ConsentBasedPrivacy/PASM.bpo|org.eventb.core.poFile#PASM|org.eventb.core.poPredicateSet#EVTHYPportableStatj(" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="pc1∈dom(portableState)∧portableState(pc1)=Void" org.eventb.core.source="/ConsentBasedPrivacy/PASM.bum|org.eventb.core.machineFile#PASM|org.eventb.core.event#4|org.eventb.core.guard#-"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="portableState{pc1 ↦ Rejected}∈(PATIENTS ↔ CONSENTS) ⤔ STATUSES" org.eventb.core.source="/ConsentBasedPrivacy/PASM.bum|org.eventb.core.machineFile#PASM|org.eventb.core.event#4|org.eventb.core.guard#."/>
         <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="canPortable∈BOOL∧canPortable=FALSE" org.eventb.core.source="/ConsentBasedPrivacy/PASM.bum|org.eventb.core.machineFile#PASM|org.eventb.core.event#4|org.eventb.core.guard#\/"/>
     </org.eventb.core.poPredicateSet>
     <org.eventb.core.poSequent name="Logout/grd2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">

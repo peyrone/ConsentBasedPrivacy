@@ -38,8 +38,8 @@
         <org.eventb.core.parameter name="*" org.eventb.core.identifier="canWithdraw"/>
         <org.eventb.core.guard name="+" org.eventb.core.label="grd1" org.eventb.core.predicate="s ∈ dom(sessions) ∧ sessions(s) ∈ dom(userRoles)"/>
         <org.eventb.core.guard name="," org.eventb.core.label="grd2" org.eventb.core.predicate="∃r·r ∈ userRoles[sessions[{s}]] ∧ r = LegalApprover"/>
-        <org.eventb.core.guard name="-" org.eventb.core.label="grd3" org.eventb.core.predicate="pc1 ∈ dom(withdrawalState)"/>
-        <org.eventb.core.guard name="." org.eventb.core.label="grd4" org.eventb.core.predicate="withdrawalState(pc1) = Void ∧ &#10;withdrawalState  {pc1 ↦ Approved} ∈ (PATIENTS ↔ CONSENTS) ⤔ STATUSES"/>
+        <org.eventb.core.guard name="-" org.eventb.core.label="grd3" org.eventb.core.predicate="pc1 ∈ dom(withdrawalState) ∧ withdrawalState(pc1) = Void"/>
+        <org.eventb.core.guard name="." org.eventb.core.label="grd4" org.eventb.core.predicate="withdrawalState  {pc1 ↦ Approved} ∈ (PATIENTS ↔ CONSENTS) ⤔ STATUSES"/>
         <org.eventb.core.guard name="/" org.eventb.core.label="grd5" org.eventb.core.predicate="canWithdraw ∈ BOOL ∧ canWithdraw = TRUE"/>
         <org.eventb.core.action name="0" org.eventb.core.assignment="withdrawalState(pc1) ≔ Approved" org.eventb.core.label="act1"/>
         <org.eventb.core.action name="1" org.eventb.core.assignment="markAsDeleted ≔ markAsDeleted  pc1" org.eventb.core.label="act2"/>
@@ -54,9 +54,9 @@
         <org.eventb.core.parameter name="(" org.eventb.core.identifier="pc1"/>
         <org.eventb.core.parameter name="*" org.eventb.core.identifier="canWithdraw"/>
         <org.eventb.core.guard name="+" org.eventb.core.label="grd1" org.eventb.core.predicate="s ∈ dom(sessions) ∧ sessions(s) ∈ dom(userRoles)"/>
-        <org.eventb.core.guard name="," org.eventb.core.label="grd2" org.eventb.core.predicate="∃r·r ∈ userRoles[sessions[{s}]] ∧ r ∈ {LegalApprover}"/>
-        <org.eventb.core.guard name="-" org.eventb.core.label="grd3" org.eventb.core.predicate="pc1 ∈ dom(withdrawalState)"/>
-        <org.eventb.core.guard name="." org.eventb.core.label="grd4" org.eventb.core.predicate="withdrawalState(pc1) = Void ∧&#10;withdrawalState  {pc1 ↦ Rejected} ∈ (PATIENTS ↔ CONSENTS) ⤔ STATUSES"/>
+        <org.eventb.core.guard name="," org.eventb.core.label="grd2" org.eventb.core.predicate="∃r·r ∈ userRoles[sessions[{s}]] ∧ r = LegalApprover"/>
+        <org.eventb.core.guard name="-" org.eventb.core.label="grd3" org.eventb.core.predicate="pc1 ∈ dom(withdrawalState) ∧ withdrawalState(pc1) = Void"/>
+        <org.eventb.core.guard name="." org.eventb.core.label="grd4" org.eventb.core.predicate="withdrawalState  {pc1 ↦ Rejected} ∈ (PATIENTS ↔ CONSENTS) ⤔ STATUSES"/>
         <org.eventb.core.guard name="/" org.eventb.core.label="grd5" org.eventb.core.predicate="canWithdraw ∈ BOOL ∧ canWithdraw = FALSE "/>
         <org.eventb.core.action name="0" org.eventb.core.assignment="withdrawalState(pc1) ≔ Rejected" org.eventb.core.label="act1"/>
     </org.eventb.core.event>

@@ -20,9 +20,9 @@
     <org.eventb.core.variable name="/" org.eventb.core.identifier="pf"/>
     <org.eventb.core.variable name="1" org.eventb.core.identifier="authorizedConsent"/>
     <org.eventb.core.invariant name="2" org.eventb.core.label="inv1" org.eventb.core.predicate="sessions ∈ SESSIONS ⤔ AUTHORIZED_USERS"/>
-    <org.eventb.core.invariant name="3" org.eventb.core.label="inv2" org.eventb.core.predicate="patients ∈ ℙ(PATIENTS)"/>
-    <org.eventb.core.invariant name="4" org.eventb.core.label="inv3" org.eventb.core.predicate="userRoles ∈ AUTHORIZED_USERS ↔ ROLES"/>
-    <org.eventb.core.invariant name="5" org.eventb.core.label="inv4" org.eventb.core.predicate="pc ∈ PATIENTS ↔ CONSENTS"/>
+    <org.eventb.core.invariant name="3" org.eventb.core.label="inv2" org.eventb.core.predicate="userRoles ∈ AUTHORIZED_USERS ↔ ROLES"/>
+    <org.eventb.core.invariant name="4" org.eventb.core.label="inv3" org.eventb.core.predicate="pc ∈ PATIENTS ↔ CONSENTS"/>
+    <org.eventb.core.invariant name="5" org.eventb.core.label="inv4" org.eventb.core.predicate="patients ∈ ℙ(PATIENTS)"/>
     <org.eventb.core.event name=";" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Login">
         <org.eventb.core.parameter name="'" org.eventb.core.identifier="s"/>
         <org.eventb.core.parameter name="(" org.eventb.core.identifier="u"/>
@@ -46,15 +46,16 @@
         <org.eventb.core.parameter name=")" org.eventb.core.identifier="c"/>
         <org.eventb.core.guard name="*" org.eventb.core.label="grd1" org.eventb.core.predicate="s ∈ dom(sessions) ∧ sessions(s) ∈ dom(userRoles)"/>
         <org.eventb.core.guard name="+" org.eventb.core.label="grd2" org.eventb.core.predicate="∃r·r ∈ userRoles[sessions[{s}]] ∧ r = NursingStaff"/>
-        <org.eventb.core.guard name="," org.eventb.core.label="grd3" org.eventb.core.predicate="p ∈ patients ∧ c ∈ dom(crf) ∧ p ↦ c ∉ pc"/>
+        <org.eventb.core.guard name="," org.eventb.core.label="grd3" org.eventb.core.predicate="p ∈ patients ∧ c ∈ dom(crf)"/>
         <org.eventb.core.action name="." org.eventb.core.assignment="pc ≔ pc ∪ {p ↦ c}" org.eventb.core.label="act1"/>
-        <org.eventb.core.guard name="/" org.eventb.core.label="grd4" org.eventb.core.predicate="pc ∪ {p ↦ c} ∈ PATIENTS ↔ CONSENTS"/>
-        <org.eventb.core.guard name="0" org.eventb.core.label="grd5" org.eventb.core.predicate="sessions(s) ∉ dom(queries)"/>
+        <org.eventb.core.guard name="/" org.eventb.core.label="grd4" org.eventb.core.predicate="p ↦ c ∉ pc"/>
+        <org.eventb.core.guard name="0" org.eventb.core.label="grd5" org.eventb.core.predicate="pc ∪ {p ↦ c} ∈ PATIENTS ↔ CONSENTS"/>
+        <org.eventb.core.guard name="1" org.eventb.core.label="grd6" org.eventb.core.predicate="sessions(s) ∉ dom(queries)"/>
     </org.eventb.core.event>
     <org.eventb.core.invariant name="?" org.eventb.core.label="inv5" org.eventb.core.predicate="crf ∈ CONSENTS ⇸ (ROLES ↔ FIELDS)"/>
     <org.eventb.core.invariant name="@" org.eventb.core.label="inv6" org.eventb.core.predicate="queries ∈ AUTHORIZED_USERS ⇸ (QUERIES ↔ PATIENTS)"/>
     <org.eventb.core.invariant name="A" org.eventb.core.label="inv7" org.eventb.core.predicate="pf ∈ AUTHORIZED_USERS ⇸ (PATIENTS ↔ FIELDS)"/>
-    <org.eventb.core.invariant name="C" org.eventb.core.label="inv9" org.eventb.core.predicate="authorizedConsent ∈ AUTHORIZED_USERS ⇸ (PATIENTS ↔ CONSENTS)"/>
+    <org.eventb.core.invariant name="C" org.eventb.core.label="inv8" org.eventb.core.predicate="authorizedConsent ∈ AUTHORIZED_USERS ⇸ (PATIENTS ↔ CONSENTS)"/>
     <org.eventb.core.event name="D" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="CreateInquiry">
         <org.eventb.core.parameter name="'" org.eventb.core.identifier="s"/>
         <org.eventb.core.parameter name="(" org.eventb.core.identifier="q"/>
@@ -81,9 +82,9 @@
         <org.eventb.core.parameter name="'" org.eventb.core.identifier="s"/>
         <org.eventb.core.parameter name="(" org.eventb.core.identifier="p"/>
         <org.eventb.core.parameter name=")" org.eventb.core.identifier="c"/>
-        <org.eventb.core.guard name="*" org.eventb.core.label="grd1" org.eventb.core.predicate="s ∈ dom(sessions) ∧ sessions(s) ∈ dom(queries) ∧ sessions(s) ∈ dom(authorizedConsent)"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd1" org.eventb.core.predicate="s ∈ dom(sessions) ∧ sessions(s) ∈ dom(queries)"/>
         <org.eventb.core.guard name="+" org.eventb.core.label="grd2" org.eventb.core.predicate="p ∈ ran(queries(sessions(s))) ∧ c ∈ dom(crf) "/>
-        <org.eventb.core.guard name="." org.eventb.core.label="grd3" org.eventb.core.predicate="p ↦ c ∈ authorizedConsent(sessions(s))"/>
+        <org.eventb.core.guard name="." org.eventb.core.label="grd3" org.eventb.core.predicate="sessions(s) ∈ dom(authorizedConsent) ∧ p ↦ c ∈ authorizedConsent(sessions(s))"/>
         <org.eventb.core.guard name="/" org.eventb.core.label="grd4" org.eventb.core.predicate="sessions(s) ∉ dom(pf)"/>
         <org.eventb.core.action name="0" org.eventb.core.assignment="pf(sessions(s)) ≔ {p} × ran(userRoles[sessions[{s}]] ◁ crf(c))" org.eventb.core.label="act1"/>
         <org.eventb.core.guard name="3" org.eventb.core.label="grd5" org.eventb.core.predicate="pf  {sessions(s) ↦ {p} × ran(userRoles[sessions[{s}]] ◁ crf(c))} ∈ AUTHORIZED_USERS ⇸ (PATIENTS ↔ FIELDS)"/>
